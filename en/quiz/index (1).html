@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Find Your Champagne Moment — Champagne.now</title>
+<meta name="description" content="Seven questions about your evening, your mood, the company at the table — and a bottle chosen the way a sommelier would." />
+<link rel="canonical" href="https://champagne.now/en/quiz/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --noir: #0a0807;
+  --noir-2: #100d0b;
+  --gold: #C9A84C;
+  --gold-soft: #a88a3a;
+  --cream: #F5ECD7;
+  --cream-dim: rgba(245,236,215,.72);
+  --hairline: rgba(201,168,76,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--noir);color:var(--cream);min-height:100vh}
+body{font-family:'EB Garamond','Cormorant Garamond',serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:var(--noir)}
+
+/* NAV */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:50;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:18px 48px;
+  background:rgba(10,8,7,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--hairline);
+}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-family:'EB Garamond',serif;letter-spacing:.32em;text-transform:uppercase;font-size:10.5px;color:var(--cream-dim);transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.wordmark{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:17px;letter-spacing:.42em;text-transform:uppercase;color:var(--cream);display:flex;align-items:center;gap:12px}
+.wordmark .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(201,168,76,.7)}
+.nav-right{justify-self:end}
+.nav-right a{font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--cream-dim)}
+
+/* QUIZ SHELL */
+.quiz-shell{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:100px 24px 60px;
+  position:relative;overflow:hidden;
+}
+
+/* BACKGROUND DECO */
+.q-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.q-bg-ring{
+  position:absolute;left:50%;top:50%;
+  border:1px solid var(--gold);border-radius:50%;
+  opacity:.06;transform:translate(-50%,-50%);
+}
+
+/* PROGRESS */
+.q-progress{
+  position:fixed;top:60px;left:0;right:0;z-index:40;
+  height:2px;background:rgba(201,168,76,.15);
+}
+.q-progress-fill{height:100%;background:var(--gold);transition:width .6s cubic-bezier(.4,0,.2,1)}
+
+/* STEP COUNTER */
+.q-step{
+  font-family:'EB Garamond',serif;
+  font-size:10.5px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:32px;
+  display:flex;align-items:center;gap:14px;
+  position:relative;z-index:1;
+}
+.q-step::before{content:"";width:28px;height:1px;background:var(--gold)}
+
+/* QUESTION */
+.q-question{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(32px,5vw,58px);line-height:1.05;
+  letter-spacing:-.01em;color:var(--cream);
+  text-align:center;max-width:700px;margin-bottom:16px;
+  position:relative;z-index:1;
+}
+.q-question em{font-style:italic;color:var(--gold);font-weight:400}
+
+.q-subtitle{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:16px;color:var(--cream-dim);
+  text-align:center;margin-bottom:52px;
+  position:relative;z-index:1;
+}
+
+/* OPTIONS GRID */
+.q-options{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;width:100%;max-width:700px;
+  position:relative;z-index:1;
+}
+.q-options.cols-3{grid-template-columns:repeat(3,1fr)}
+
+.q-opt{
+  border:1px solid var(--hairline);
+  padding:28px 24px 24px;
+  cursor:pointer;
+  transition:all .45s cubic-bezier(.2,.7,.2,1);
+  position:relative;overflow:hidden;
+  background:transparent;
+  display:flex;flex-direction:column;align-items:flex-start;gap:8px;
+  text-align:left;
+}
+.q-opt::after{
+  content:"";position:absolute;left:0;bottom:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.q-opt:hover{border-color:rgba(201,168,76,.5);background:rgba(201,168,76,.04)}
+.q-opt:hover::after{transform:scaleX(1)}
+.q-opt.selected{border-color:var(--gold);background:rgba(201,168,76,.08)}
+.q-opt.selected::after{transform:scaleX(1)}
+
+.q-opt-icon{font-size:22px;margin-bottom:4px;opacity:.8}
+.q-opt-label{
+  font-family:'Cormorant Garamond',serif;font-size:20px;
+  color:var(--cream);line-height:1.1;
+}
+.q-opt-sub{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:13.5px;color:var(--cream-dim);line-height:1.5;
+}
+
+/* NEXT BUTTON */
+.q-next{
+  margin-top:40px;
+  font-family:'EB Garamond',serif;
+  font-size:11px;letter-spacing:.4em;text-transform:uppercase;
+  padding:16px 36px;border:1px solid var(--gold);
+  color:var(--cream);background:transparent;cursor:pointer;
+  transition:all .45s;display:inline-flex;align-items:center;gap:14px;
+  opacity:0;pointer-events:none;
+  position:relative;z-index:1;
+}
+.q-next.visible{opacity:1;pointer-events:auto}
+.q-next:hover{background:var(--gold);color:var(--noir)}
+.q-next .arrow{width:16px;height:1px;background:currentColor;position:relative;transition:width .4s}
+.q-next .arrow::after{content:"";position:absolute;right:0;top:-3px;width:6px;height:6px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.q-next:hover .arrow{width:28px}
+
+/* SCREEN TRANSITIONS */
+.q-screen{
+  display:flex;flex-direction:column;align-items:center;
+  width:100%;max-width:760px;
+  opacity:0;transform:translateY(24px);
+  transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+  pointer-events:none;position:absolute;
+}
+.q-screen.active{
+  opacity:1;transform:none;
+  pointer-events:auto;position:relative;
+}
+.q-screen.exit{
+  opacity:0;transform:translateY(-24px);
+  pointer-events:none;position:absolute;
+}
+
+/* RESULT */
+.result-wrap{
+  width:100%;max-width:760px;
+  text-align:center;
+  position:relative;z-index:1;
+}
+.result-eyebrow{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:14px;letter-spacing:.2em;color:var(--gold);
+  margin-bottom:20px;
+}
+.result-title{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(36px,6vw,68px);line-height:.95;
+  color:var(--cream);margin-bottom:8px;
+}
+.result-title em{font-style:italic;color:var(--gold);font-weight:400}
+.result-house{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:16px;color:var(--cream-dim);margin-bottom:48px;
+}
+
+.result-card{
+  border:1px solid var(--gold);
+  padding:48px 48px 40px;
+  margin-bottom:40px;
+  background:radial-gradient(circle at 50% 0%, rgba(201,168,76,.08), transparent 60%);
+  position:relative;
+}
+.result-card::before,.result-card::after{
+  content:"";position:absolute;width:24px;height:24px;border:1px solid var(--gold);
+}
+.result-card::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
+.result-card::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+
+.result-style{
+  font-family:'EB Garamond',serif;font-size:10.5px;
+  letter-spacing:.42em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:16px;
+}
+.result-note{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:18px;line-height:1.8;color:var(--cream-dim);
+  margin-bottom:28px;
+}
+.result-ritual{
+  font-family:'EB Garamond',serif;
+  font-size:14px;line-height:1.7;color:var(--cream-dim);
+  border-top:1px solid var(--hairline);padding-top:22px;
+}
+.result-ritual strong{color:var(--cream);font-weight:500}
+
+.result-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.btn-gold{
+  font-family:'EB Garamond',serif;font-size:11px;
+  letter-spacing:.36em;text-transform:uppercase;
+  padding:16px 32px;background:var(--gold);color:var(--noir);
+  border:1px solid var(--gold);cursor:pointer;
+  transition:all .4s;display:inline-flex;align-items:center;gap:12px;
+}
+.btn-gold:hover{background:transparent;color:var(--gold)}
+.btn-ghost{
+  font-family:'EB Garamond',serif;font-size:11px;
+  letter-spacing:.36em;text-transform:uppercase;
+  padding:16px 32px;background:transparent;color:var(--cream);
+  border:1px solid var(--hairline);cursor:pointer;
+  transition:all .4s;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* INTRO SCREEN */
+.intro-wrap{text-align:center;max-width:620px;position:relative;z-index:1}
+.intro-label{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--gold);display:inline-flex;align-items:center;gap:14px;margin-bottom:36px;
+}
+.intro-label::before,.intro-label::after{content:"";width:28px;height:1px;background:var(--gold)}
+.intro-h{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(44px,7vw,80px);line-height:.95;
+  letter-spacing:-.015em;color:var(--cream);margin-bottom:28px;
+}
+.intro-h em{font-style:italic;color:var(--gold);font-weight:400}
+.intro-p{
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:18px;line-height:1.72;color:var(--cream-dim);
+  margin-bottom:48px;
+}
+.intro-meta{
+  display:flex;justify-content:center;gap:48px;flex-wrap:wrap;
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:13px;color:var(--cream-dim);margin-top:32px;
+}
+.intro-meta b{
+  font-style:normal;color:var(--gold);font-weight:500;
+  letter-spacing:.32em;text-transform:uppercase;font-size:10px;
+  display:block;margin-bottom:4px;
+}
+
+@media(max-width:640px){
+  .nav{padding:14px 20px;grid-template-columns:auto 1fr auto}
+  .nav-links{display:none}
+  .q-options{grid-template-columns:1fr}
+  .q-options.cols-3{grid-template-columns:1fr 1fr}
+  .result-card{padding:32px 24px}
+  .quiz-shell{padding:90px 16px 50px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-links">
+    <a href="/en/terroir/">The Region</a>
+    <a href="/en/wine-styles/">The Wine</a>
+    <a href="/">Home</a>
+  </div>
+  <div class="wordmark"><a href="/">Champagne<span class="dot"></span>now</a></div>
+  <div class="nav-right"><a href="/">← Back</a></div>
+</nav>
+
+<div class="q-progress"><div class="q-progress-fill" id="progressFill"></div></div>
+
+<main class="quiz-shell">
+  <div class="q-bg">
+    <div class="q-bg-ring" style="width:500px;height:500px"></div>
+    <div class="q-bg-ring" style="width:800px;height:800px;opacity:.04"></div>
+    <div class="q-bg-ring" style="width:1100px;height:1100px;opacity:.025"></div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="q-screen active" id="screen-intro">
+    <div class="intro-wrap">
+      <div class="intro-label">Le Jeu · The Quiz</div>
+      <h1 class="intro-h">Tell us the <em>hour.</em><br/>We'll pour the <em>wine.</em></h1>
+      <p class="intro-p">Seven questions about your evening, your mood, the company at the table — and a bottle chosen the way a sommelier would, in a quiet voice, leaning in.</p>
+      <button class="btn-gold" onclick="startQuiz()">Begin the quiz <span style="width:16px;height:1px;background:currentColor;display:inline-block;position:relative;top:1px;margin-left:4px"></span></button>
+      <div class="intro-meta">
+        <span><b>Length</b> Seven questions</span>
+        <span><b>Time</b> Two minutes</span>
+        <span><b>Result</b> One bottle, one story</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div class="q-screen" id="screen-questions">
+    <div class="q-step" id="stepLabel">Question 1 of 7</div>
+    <h2 class="q-question" id="qText"></h2>
+    <p class="q-subtitle" id="qSub"></p>
+    <div class="q-options" id="qOptions"></div>
+    <button class="q-next" id="nextBtn" onclick="nextQuestion()">
+      Continue <span class="arrow"></span>
+    </button>
+  </div>
+
+  <!-- RESULT -->
+  <div class="q-screen" id="screen-result">
+    <div class="result-wrap" id="resultWrap"></div>
+  </div>
+
+</main>
+
+<script>
+const QUESTIONS = [
+  {
+    q: "What are you <em>celebrating?</em>",
+    sub: "Or perhaps no reason is needed.",
+    options: [
+      { icon: "💍", label: "A milestone", sub: "Wedding, anniversary, promotion", value: "milestone" },
+      { icon: "🌙", label: "A quiet evening", sub: "Just you, or someone close", value: "quiet" },
+      { icon: "🥂", label: "A reunion", sub: "Old friends, familiar faces", value: "reunion" },
+      { icon: "✦", label: "No reason at all", sub: "Tuesday deserves it too", value: "tuesday" },
+    ]
+  },
+  {
+    q: "How many people are at <em>the table?</em>",
+    sub: "The size of the gathering shapes the wine.",
+    options: [
+      { icon: "①", label: "Just me", sub: "A private ritual", value: "solo" },
+      { icon: "②", label: "Two of us", sub: "Intimate, unhurried", value: "two" },
+      { icon: "⑤", label: "A small group", sub: "Four to six people", value: "small" },
+      { icon: "✦", label: "A proper gathering", sub: "Seven or more", value: "large" },
+    ]
+  },
+  {
+    q: "What is your <em>mood</em> right now?",
+    sub: "Be honest. The wine will know.",
+    options: [
+      { icon: "◈", label: "Contemplative", sub: "Quiet, slightly philosophical", value: "contemplative" },
+      { icon: "◉", label: "Festive", sub: "Ready to celebrate loudly", value: "festive" },
+      { icon: "◇", label: "Romantic", sub: "Soft light, close company", value: "romantic" },
+      { icon: "◎", label: "Triumphant", sub: "Something was won today", value: "triumphant" },
+    ]
+  },
+  {
+    q: "What will you eat <em>tonight?</em>",
+    sub: "Champagne is not just an aperitif.",
+    options: [
+      { icon: "🦪", label: "Seafood or oysters", sub: "The classic pairing", value: "seafood" },
+      { icon: "🧀", label: "Cheese and charcuterie", sub: "An evening of grazing", value: "cheese" },
+      { icon: "🍗", label: "Something indulgent", sub: "Fried, rich, satisfying", value: "indulgent" },
+      { icon: "◌", label: "Nothing yet decided", sub: "The bottle comes first", value: "nothing" },
+    ]
+  },
+  {
+    q: "How do you feel about <em>bubbles?</em>",
+    sub: "Some want electricity. Others want texture.",
+    options: [
+      { icon: "◦", label: "Fine and persistent", sub: "Almost invisible, all texture", value: "fine" },
+      { icon: "○", label: "Lively and energetic", sub: "The classic champagne rush", value: "lively" },
+      { icon: "●", label: "Rich and creamy", sub: "The mousse as an ingredient", value: "creamy" },
+    ],
+    cols: 3
+  },
+  {
+    q: "What do you look for in a <em>flavour?</em>",
+    sub: "Your palate knows better than you think.",
+    options: [
+      { icon: "◈", label: "Mineral and precise", sub: "Chalk, sea spray, tension", value: "mineral" },
+      { icon: "◉", label: "Fruit and freshness", sub: "Apple, citrus, brioche", value: "fruity" },
+      { icon: "◇", label: "Rich and complex", sub: "Hazelnut, honey, depth", value: "rich" },
+      { icon: "◎", label: "Delicate and floral", sub: "Rose petal, white peach", value: "floral" },
+    ]
+  },
+  {
+    q: "How much would you like to <em>spend?</em>",
+    sub: "There is no wrong answer.",
+    options: [
+      { icon: "①", label: "Under $50", sub: "Grower champagnes, excellent value", value: "budget" },
+      { icon: "②", label: "$50 – $120", sub: "The sweet spot for quality", value: "mid" },
+      { icon: "③", label: "$120 – $250", sub: "Prestige and occasion", value: "premium" },
+      { icon: "✦", label: "The best available", sub: "No ceiling tonight", value: "luxury" },
+    ]
+  }
+];
+
+const RESULTS = {
+  // Budget + mineral/fruity → Grower NV
+  budget_mineral: {
+    style: "Grower Champagne — Blanc de Blancs",
+    title: "Pierre Péters",
+    subtitle: "Cuvée de Réserve · Le Mesnil-sur-Oger",
+    note: "From a sixth-generation family in Le Mesnil-sur-Oger, this blanc de blancs shows what chalk actually tastes like. Precise, saline, with a citrus tension that makes you sit up straighter. At this price, it is one of the most honest bottles in Champagne.",
+    ritual: "<strong>Serve at 8°C.</strong> Pour slowly. Give it ten minutes to open before the first sip. It deserves the attention.",
+    price: "$45–55",
+    url: "PLACEHOLDER_VIVINO"
+  },
+  budget_fruity: {
+    style: "Non-Vintage Brut",
+    title: "Billecart-Salmon",
+    subtitle: "Brut Réserve · Mareuil-sur-Aÿ",
+    note: "The house style at Billecart leans toward freshness and delicacy. Their Brut Réserve opens with green apple and white pear, with a mousse so fine it barely announces itself. Elegant without effort.",
+    ritual: "<strong>For a quiet evening:</strong> a coupe rather than a flute. Wider opening, softer bubbles, more conversation.",
+    price: "$45–60",
+    url: "PLACEHOLDER_VIVINO"
+  },
+  mid_mineral: {
+    style: "Blanc de Blancs — Grand Cru",
+    title: "Salon",
+    subtitle: "Le Mesnil · Côte des Blancs",
+    note: "Salon makes one wine, from one village, in one year — only when the year warrants it. If you find a recent release, you are tasting Chardonnay from pure chalk at its most austere and most thrilling. Not a wine for small talk.",
+    ritual: "<strong>This wine needs food.</strong> Plateau de fruits de mer, or aged Comté. Something with salt and substance.",
+    price: "$400–500",
+    url: "PLACEHOLDER_VIVINO"
+  },
+  mid_fruity: {
+    style: "Non-Vintage Brut — Classic Blend",
+    title: "Taittinger",
+    subtitle: "Brut Réserve · Reims",
+    note: "Taittinger uses more Chardonnay than most grandes maisons, which gives their Brut Réserve an elegance and freshness that suits almost every occasion. The house that remained family-owned when others sold. Something in the wine remembers this.",
+    ritual: "<strong>For a gathering:</strong> open two bottles simultaneously. The first disappears faster than you expect.",
+    price: "$55–70",
+    url: "PLACEHOLDER_VIVINO"
+  },
+  mid_rich: {
+    style: "Non-Vintage — Pinot Noir Driven",
+    title: "Bollinger",
+    subtitle: "Special Cuvée · Aÿ",
+    note: "Bollinger ferments in small oak foudres, which is unusual, and ages longer than most. The result is a champagne with weight and authority — toasted hazelnuts, ripe apple, a finish that lingers like a good argument. The wine preferred by people who find most champagne too light.",
+    ritual: "<strong>With food, always.</strong> Aged Comté, roasted chicken, or the best fried chicken you can find. This pairing is not a joke.",
+    price: "$65–80",
+    url: "PLACEHOLDER_VIVINO"
+  },
+  mid_floral: {
+    style: "Rosé — Non-Vintage",
+    title: "Billecart-Salmon",
+    subtitle: "Brut Rosé · Mareuil-sur-Aÿ",
+    note: "The most celebrated rosé in Champagne for a reason. Pale salmon-pink, with wild strawberry and rose petal that never tips into sweetness. The mousse is impossibly fine. It is beautiful on the inside too.",
+    ritual: "<strong>Romantic evenings:</strong> serve slightly colder than you think, around 6°C. The cold preserves the delicacy.",
+    price: "$75–90",
+    url: "PLACEHOLDER_VIVINO"
+  },
+  premium_mineral: {
+    style: "Vintage Blanc de Blancs",
+    title: "Krug",
+    subtitle: "Clos du Mesnil · Le Mesnil-sur-Oger",
+    note: "From a 1.84-hectare walled vineyard in Le Mesnil-sur-Oger, this is one of the most singular wines made anywhere. Pure Chardonnay from pure chalk. The bubbles seem almost dissolved into silk. A wine that makes you quiet.",
+    ritual: "<strong>Serve in a wide-bowled glass, not a flute.</strong> The wine needs room. Pour small amounts, return often.",
+    price: "$800–1,000",
+    url: "PLACEHOLDER_VIVINO"
+  },
+  premium_rich: {
+    style: "Prestige Cuvée — Multi-Vintage",
+    title: "Krug",
+    subtitle: "Grande Cuvée · Reims",
+    note: "Krug blends 120 wines from 12 different years. The result is a champagne that doesn't taste like any particular vintage — it tastes like Krug. Hazelnut and toasted brioche, yes, but also something structural underneath, like the inside of a walnut shell.",
+    ritual: "<strong>No occasion required.</strong> Open it when the moment feels right. The bottle will confirm you were correct.",
+    price: "$180–220",
+    url: "PLACEHOLDER_VIVINO"
+  },
+  luxury_any: {
+    style: "Prestige Cuvée — Vintage",
+    title: "Dom Pérignon",
+    subtitle: "Vintage · Hautvillers",
+    note: "Dom Pérignon spent his life trying to get the bubbles out of his wine. His name now sells more bubbles than anyone in history. He would not have found this funny. What he would recognise: the weight, the minerality, the way the wine holds itself together across decades.",
+    ritual: "<strong>Decant for 20 minutes</strong> before serving. Dom Pérignon opens slowly, like a person who has nothing to prove.",
+    price: "$200–250",
+    url: "PLACEHOLDER_VIVINO"
+  },
+  default: {
+    style: "Non-Vintage Brut",
+    title: "Moët & Chandon",
+    subtitle: "Impérial Brut · Épernay",
+    note: "The world's most recognised champagne exists for a reason. Green apple, soft brioche, a mousse that is present but not demanding. Twenty-eight million bottles a year, and yet the consistency is remarkable. For any occasion, any table, any mood.",
+    ritual: "<strong>The universal opening:</strong> thumb over cork, twist slowly, let the sigh — not the pop — mark the moment.",
+    price: "$45–60",
+    url: "PLACEHOLDER_VIVINO"
+  }
+};
+
+let currentQ = 0;
+let answers = [];
+let selected = null;
+
+function startQuiz() {
+  transition('screen-intro', 'screen-questions');
+  setTimeout(() => renderQuestion(0), 400);
+}
+
+function transition(from, to) {
+  const f = document.getElementById(from);
+  const t = document.getElementById(to);
+  f.classList.add('exit');
+  f.classList.remove('active');
+  setTimeout(() => {
+    f.classList.remove('exit');
+    t.classList.add('active');
+  }, 350);
+}
+
+function renderQuestion(idx) {
+  const q = QUESTIONS[idx];
+  document.getElementById('stepLabel').textContent = `Question ${idx+1} of ${QUESTIONS.length}`;
+  document.getElementById('qText').innerHTML = q.q;
+  document.getElementById('qSub').textContent = q.sub || '';
+
+  const opts = document.getElementById('qOptions');
+  opts.className = 'q-options' + (q.cols === 3 ? ' cols-3' : '');
+  opts.innerHTML = q.options.map((o, i) => `
+    <button class="q-opt" onclick="selectOpt(${i}, '${o.value}')">
+      <span class="q-opt-icon">${o.icon}</span>
+      <span class="q-opt-label">${o.label}</span>
+      <span class="q-opt-sub">${o.sub}</span>
+    </button>
+  `).join('');
+
+  selected = null;
+  document.getElementById('nextBtn').classList.remove('visible');
+  updateProgress(idx);
+}
+
+function selectOpt(idx, value) {
+  document.querySelectorAll('.q-opt').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.q-opt')[idx].classList.add('selected');
+  selected = value;
+  document.getElementById('nextBtn').classList.add('visible');
+}
+
+function nextQuestion() {
+  if (selected === null) return;
+  answers.push(selected);
+
+  if (currentQ < QUESTIONS.length - 1) {
+    currentQ++;
+    // Animate out current options
+    const qs = document.getElementById('screen-questions');
+    qs.style.opacity = '0';
+    qs.style.transform = 'translateY(-20px)';
+    setTimeout(() => {
+      renderQuestion(currentQ);
+      qs.style.transition = 'none';
+      qs.style.transform = 'translateY(20px)';
+      qs.style.opacity = '0';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          qs.style.transition = '';
+          qs.style.opacity = '1';
+          qs.style.transform = 'none';
+        });
+      });
+    }, 300);
+  } else {
+    updateProgress(QUESTIONS.length);
+    showResult();
+  }
+}
+
+function updateProgress(idx) {
+  const pct = (idx / QUESTIONS.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function getResult() {
+  const budget = answers[6]; // last question
+  const flavour = answers[5];
+
+  if (budget === 'luxury') return RESULTS.luxury_any;
+  if (budget === 'premium' && flavour === 'mineral') return RESULTS.premium_mineral;
+  if (budget === 'premium' && flavour === 'rich') return RESULTS.premium_rich;
+  if (budget === 'premium') return RESULTS.luxury_any;
+  if (budget === 'mid' && flavour === 'mineral') return RESULTS.mid_mineral;
+  if (budget === 'mid' && flavour === 'rich') return RESULTS.mid_rich;
+  if (budget === 'mid' && flavour === 'floral') return RESULTS.mid_floral;
+  if (budget === 'mid') return RESULTS.mid_fruity;
+  if (budget === 'budget' && flavour === 'mineral') return RESULTS.budget_mineral;
+  return RESULTS.budget_fruity;
+}
+
+function showResult() {
+  const r = getResult();
+  const mood = answers[2];
+  const moodMap = {
+    contemplative: 'A contemplative evening',
+    festive: 'A festive occasion',
+    romantic: 'A romantic evening',
+    triumphant: 'A triumphant moment'
+  };
+  const moodLabel = moodMap[mood] || 'Your moment';
+
+  document.getElementById('resultWrap').innerHTML = `
+    <div class="result-eyebrow">${moodLabel} · Your Champagne</div>
+    <div class="result-title"><em>${r.title}</em></div>
+    <div class="result-house">${r.subtitle}</div>
+    <div class="result-card">
+      <div class="result-style">${r.style}</div>
+      <p class="result-note">${r.note}</p>
+      <div class="result-ritual">${r.ritual}</div>
+    </div>
+    <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:var(--gold);margin-bottom:24px">
+      Approximate price: ${r.price}
+    </div>
+    <div class="result-btns">
+      <a href="/en/houses/${r.title.toLowerCase().replace(/[^a-z]/g,'-').replace(/-+/g,'-')}/" class="btn-gold">Read about ${r.title} →</a>
+      <button class="btn-ghost" onclick="restartQuiz()">Take the quiz again</button>
+    </div>
+    <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--cream-dim);opacity:.5;margin-top:32px;text-align:center">
+      Champagne.now earns a commission if you purchase via our links — at no extra cost to you. <a href="/en/legal/affiliate/" style="color:var(--cream-dim);border-bottom:1px solid var(--hairline)">Affiliate disclosure</a>
+    </p>
+  `;
+
+  transition('screen-questions', 'screen-result');
+  document.getElementById('progressFill').style.width = '100%';
+}
+
+function restartQuiz() {
+  currentQ = 0;
+  answers = [];
+  selected = null;
+  transition('screen-result', 'screen-questions');
+  setTimeout(() => renderQuestion(0), 400);
+}
+</script>
+</body>
+</html>
