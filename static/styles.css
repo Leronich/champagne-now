@@ -56,7 +56,7 @@ a{color:inherit;text-decoration:none}
   font-weight:500;font-size:18px;letter-spacing:.42em;text-transform:uppercase;
   color:var(--cream);display:flex;align-items:center;gap:14px;
 }
-.wordmark .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(201,168,76,.7)}
+.wordmark .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(201,168,76,.7);display:inline-block;flex-shrink:0;vertical-align:middle;margin:0 4px}
 .nav-right{justify-self:end;display:flex;gap:30px;align-items:center}
 .nav-right .lang{font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.32em;color:var(--cream-dim)}
 .nav-right .lang b{color:var(--gold);font-weight:500}
