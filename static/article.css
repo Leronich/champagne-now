@@ -47,7 +47,7 @@
 }
 .art-badge {
   font-family: 'EB Garamond', serif;
-  font-size: 12px; letter-spacing: .42em;
+  font-size: 13px; letter-spacing: .42em;
   text-transform: uppercase;
   color: var(--noir);
   background: var(--gold);
@@ -220,12 +220,12 @@
 }
 .wca-style {
   font-family: 'EB Garamond', serif;
-  font-size: 12px; letter-spacing: .3em;
+  font-size: 13px; letter-spacing: .3em;
   text-transform: uppercase; color: var(--gold);
 }
 .wca-note {
   font-family: 'EB Garamond', serif;
-  font-style: italic; font-size: 15.5px;
+  font-style: italic; font-size: 15px;
   line-height: 1.7; color: var(--cream-dim);
   margin-bottom: 20px;
 }
@@ -282,7 +282,7 @@
 }
 .grower-note, .pi-why {
   font-family: 'EB Garamond', serif;
-  font-style: italic; font-size: 15.5px;
+  font-style: italic; font-size: 15px;
   line-height: 1.65; color: var(--cream-dim);
 }
 .grower-link, .pi-link {
@@ -326,7 +326,7 @@
 }
 .aff-label {
   font-family: 'EB Garamond', serif;
-  font-size: 12px; letter-spacing: .42em;
+  font-size: 13px; letter-spacing: .42em;
   text-transform: uppercase; color: var(--gold);
   display: block; margin-bottom: 14px;
 }
@@ -401,7 +401,7 @@
 }
 .ps-name {
   font-family: 'EB Garamond', serif;
-  font-size: 12px; letter-spacing: .4em;
+  font-size: 13px; letter-spacing: .4em;
   text-transform: uppercase; color: var(--gold);
   display: block; margin-bottom: 10px;
 }
@@ -462,7 +462,7 @@
 }
 .eat-addr {
   font-family: 'EB Garamond', serif;
-  font-size: 12px; letter-spacing: .2em;
+  font-size: 13px; letter-spacing: .2em;
   color: var(--gold); text-transform: uppercase;
 }
 .eat-why {
@@ -483,7 +483,7 @@
 }
 .tour-block p {
   font-family: 'EB Garamond', serif;
-  font-size: 16.5px; line-height: 1.7;
+  font-size: 16px; line-height: 1.7;
   color: var(--cream-dim); margin-bottom: 22px;
 }
 
@@ -509,7 +509,7 @@
 }
 .pc-why {
   font-family: 'EB Garamond', serif;
-  font-size: 16.5px; line-height: 1.72;
+  font-size: 16px; line-height: 1.72;
   color: var(--cream-dim);
   border-top: 1px solid var(--hairline);
   padding-top: 16px; margin-top: 4px;
@@ -525,7 +525,7 @@
 }
 .tasting-body {
   font-family: 'EB Garamond', serif;
-  font-size: 19px !important;
+  font-size: 19px;
   line-height: 1.78 !important;
   color: var(--cream) !important;
   font-style: italic;
@@ -550,7 +550,7 @@
 }
 .num-label {
   font-family: 'EB Garamond', serif;
-  font-size: 12px; letter-spacing: .36em;
+  font-size: 13px; letter-spacing: .36em;
   text-transform: uppercase; color: var(--cream-dim);
 }
 
@@ -558,7 +558,7 @@
 .closing-para {
   font-family: 'EB Garamond', serif;
   font-style: italic;
-  font-size: clamp(18px, 2.4vw, 24px) !important;
+  font-size: clamp(18px, 2.4vw, 24px);
   line-height: 1.65 !important;
   color: var(--cream) !important;
   text-align: center;
