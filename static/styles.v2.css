@@ -22,7 +22,7 @@ a{color:inherit;text-decoration:none}
 .label{
   font-family:'EB Garamond',serif;
   letter-spacing:.42em;text-transform:uppercase;
-  font-size:18px;color:var(--gold);
+  font-size:36px;color:var(--gold);
   display:inline-flex;align-items:center;gap:14px;
 }
 .label::before{content:"";width:28px;height:1px;background:var(--gold)}
@@ -58,7 +58,7 @@ a{color:inherit;text-decoration:none}
 }
 .wordmark .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(201,168,76,.7)}
 .nav-right{justify-self:end;display:flex;gap:30px;align-items:center}
-.nav-right .lang{font-family:'EB Garamond',serif;font-size:18px;letter-spacing:.32em;color:var(--cream-dim)}
+.nav-right .lang{font-family:'EB Garamond',serif;font-size:36px;letter-spacing:.32em;color:var(--cream-dim)}
 .nav-right .lang b{color:var(--gold);font-weight:500}
 .nav-right .res{
   font-family:'EB Garamond',serif;font-style:italic;font-size:20px;color:var(--cream);
@@ -121,7 +121,7 @@ a{color:inherit;text-decoration:none}
 .hero-eyebrow .rule{width:42px;height:1px;background:var(--gold)}
 .hero-eyebrow span{
   font-family:'EB Garamond',serif;font-style:italic;
-  letter-spacing:.36em;text-transform:uppercase;font-size:18px;color:var(--gold);
+  letter-spacing:.36em;text-transform:uppercase;font-size:36px;color:var(--gold);
 }
 .hero h1{
   font-family:'Cormorant Garamond',serif;font-weight:300;
@@ -146,7 +146,7 @@ a{color:inherit;text-decoration:none}
 
 .btn{
   font-family:'EB Garamond',serif;
-  font-size:18px;letter-spacing:.36em;text-transform:uppercase;
+  font-size:36px;letter-spacing:.36em;text-transform:uppercase;
   padding:19px 34px;border:1px solid var(--gold);
   color:var(--cream);background:transparent;cursor:pointer;
   transition:all .45s cubic-bezier(.4,0,.2,1);
@@ -170,7 +170,7 @@ a{color:inherit;text-decoration:none}
 .hero-foot .meta{font-family:'EB Garamond',serif;font-style:italic;font-size:20px;max-width:240px;line-height:1.6}
 .hero-foot .meta b{
   font-style:normal;font-weight:500;color:var(--gold);
-  letter-spacing:.34em;text-transform:uppercase;font-size:18px;
+  letter-spacing:.34em;text-transform:uppercase;font-size:36px;
   display:block;margin-bottom:8px;
 }
 .hero-foot .meta.right{text-align:right;margin-left:auto}
@@ -178,7 +178,7 @@ a{color:inherit;text-decoration:none}
   position:absolute;left:50%;bottom:32px;transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:12px;
   font-family:'EB Garamond',serif;font-style:italic;
-  font-size:18px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);
+  font-size:36px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);
 }
 .scroll-cue .line{width:1px;height:54px;background:linear-gradient(to bottom,transparent,var(--gold));overflow:hidden;position:relative}
 .scroll-cue .line::after{content:"";position:absolute;left:0;right:0;top:-18px;height:18px;background:var(--cream);animation:cue 2.4s ease-in-out infinite}
@@ -230,7 +230,7 @@ a{color:inherit;text-decoration:none}
 .region-card p{font-family:'EB Garamond',serif;font-size:21px;line-height:1.78;color:var(--cream-dim);max-width:360px}
 .region-card .more{
   margin-top:auto;padding-top:30px;display:inline-flex;align-items:center;gap:14px;
-  font-family:'EB Garamond',serif;font-style:italic;font-size:18px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
+  font-family:'EB Garamond',serif;font-style:italic;font-size:36px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
 }
 .region-card .more .arr{width:14px;height:1px;background:var(--gold);transition:width .5s ease;position:relative}
 .region-card .more .arr::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);transform:rotate(45deg)}
@@ -266,12 +266,12 @@ a{color:inherit;text-decoration:none}
 .wine-card:hover{border-color:var(--gold);transform:translateY(-8px)}
 .wine-card .roman{
   font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
-  font-size:19px;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;
+  font-size:38px;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;
 }
 .wine-card .index{
   position:absolute;top:42px;right:38px;
   font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);
-  font-size:19px;letter-spacing:.36em;text-transform:uppercase;
+  font-size:38px;letter-spacing:.36em;text-transform:uppercase;
 }
 .wine-card .bottle{flex:1;display:flex;align-items:center;justify-content:center;margin:14px 0;position:relative}
 .wine-card .bottle svg{height:340px;width:auto}
@@ -289,7 +289,7 @@ a{color:inherit;text-decoration:none}
 .wine-card .notes span + span::before{content:"·";color:var(--gold);margin-right:18px;margin-left:-12px}
 .rail-hint{
   position:absolute;top:-58px;right:56px;display:flex;align-items:center;gap:14px;
-  font-family:'EB Garamond',serif;font-style:italic;font-size:18px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
+  font-family:'EB Garamond',serif;font-style:italic;font-size:36px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
 }
 .rail-hint .ln{width:48px;height:1px;background:var(--gold);position:relative;animation:slide 2.6s ease-in-out infinite}
 .rail-hint .ln::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid var(--gold);border-right:1px solid var(--gold);transform:rotate(45deg)}
@@ -324,7 +324,7 @@ a{color:inherit;text-decoration:none}
 .quiz h2 em{font-style:italic;color:var(--gold);font-weight:400}
 .quiz .quiz-sub{
   position:relative;z-index:1;margin:34px auto 0;max-width:600px;
-  font-family:'EB Garamond',serif;font-style:italic;font-size:18px;line-height:1.7;color:var(--cream-dim);
+  font-family:'EB Garamond',serif;font-style:italic;font-size:36px;line-height:1.7;color:var(--cream-dim);
 }
 .quiz .quiz-cta{position:relative;z-index:1;margin-top:54px;display:inline-flex}
 .quiz .meta-row{
@@ -334,7 +334,7 @@ a{color:inherit;text-decoration:none}
 }
 .quiz .meta-row span b{
   font-style:normal;color:var(--gold);font-weight:500;letter-spacing:.32em;
-  text-transform:uppercase;font-size:18px;display:block;margin-bottom:6px;
+  text-transform:uppercase;font-size:36px;display:block;margin-bottom:6px;
 }
 
 /* FOOTER */
@@ -342,9 +342,9 @@ a{color:inherit;text-decoration:none}
   border-top:1px solid var(--hairline);
   padding:60px 56px;
   display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:30px;
-  font-family:'EB Garamond',serif;font-style:italic;font-size:19px;color:var(--cream-dim);
+  font-family:'EB Garamond',serif;font-style:italic;font-size:38px;color:var(--cream-dim);
 }
-.foot .center{font-family:'Cormorant Garamond',serif;letter-spacing:.42em;text-transform:uppercase;font-size:18px;color:var(--gold);font-style:normal}
+.foot .center{font-family:'Cormorant Garamond',serif;letter-spacing:.42em;text-transform:uppercase;font-size:36px;color:var(--gold);font-style:normal}
 .foot .right{text-align:right}
 
 @media (max-width:1100px){
