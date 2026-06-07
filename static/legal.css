@@ -1,0 +1,250 @@
+/* ─── LEGAL PAGES — Champagne.now ──────────────────────────────────────────── */
+
+.legal-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 120px 56px 100px;
+}
+
+.legal-header {
+  margin-bottom: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.legal-header .label {
+  margin-bottom: 24px;
+}
+
+.legal-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1;
+  color: var(--cream);
+  margin-bottom: 16px;
+}
+
+.legal-date, .legal-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--cream-dim);
+  letter-spacing: .04em;
+}
+
+/* BODY */
+.legal-body h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 48px 0 16px;
+}
+
+.legal-body h2:first-child {
+  margin-top: 0;
+}
+
+.legal-body p {
+  font-family: 'EB Garamond', serif;
+  font-size: 17px;
+  line-height: 1.78;
+  color: var(--cream-dim);
+  margin-bottom: 18px;
+}
+
+.legal-body a {
+  color: var(--gold);
+  border-bottom: 1px solid var(--hairline);
+  transition: border-color .3s;
+}
+
+.legal-body a:hover {
+  border-color: var(--gold);
+}
+
+.legal-body code {
+  font-family: monospace;
+  font-size: 13px;
+  background: rgba(201,168,76,.1);
+  color: var(--gold);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+/* COOKIE TABLE */
+.cookie-table {
+  border: 1px solid var(--hairline);
+  margin: 24px 0 32px;
+}
+
+.ct-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 2.5fr 1fr;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--hairline);
+  font-family: 'EB Garamond', serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--cream-dim);
+}
+
+.ct-row:last-child {
+  border-bottom: none;
+}
+
+.ct-head {
+  font-size: 10px;
+  letter-spacing: .36em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.05);
+  padding: 12px 20px;
+}
+
+/* AFFILIATE LIST */
+.affiliate-list {
+  border: 1px solid var(--hairline);
+  margin: 24px 0 32px;
+}
+
+.aff-item {
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--hairline);
+  transition: background .3s;
+}
+
+.aff-item:last-child {
+  border-bottom: none;
+}
+
+.aff-item:hover {
+  background: var(--noir-2);
+}
+
+.aff-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--cream);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.aff-item p {
+  font-family: 'EB Garamond', serif;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--cream-dim);
+  margin: 0;
+}
+
+/* CONTACT PAGE */
+.contact-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.contact-main h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.contact-email {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--hairline);
+}
+
+.contact-email .label {
+  margin-bottom: 12px;
+}
+
+.contact-email-link {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: var(--cream);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 3px;
+  transition: color .3s;
+}
+
+.contact-email-link:hover {
+  color: var(--gold);
+}
+
+.contact-types {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+
+.ct-item {
+  background: var(--noir);
+  padding: 24px 26px;
+  transition: background .4s;
+}
+
+.ct-item:hover {
+  background: var(--noir-2);
+}
+
+.ct-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 10px;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.ct-item p {
+  font-family: 'EB Garamond', serif;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--cream-dim);
+  margin: 0;
+}
+
+.ct-item p a {
+  color: var(--gold);
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* LEGAL NAV */
+.legal-nav {
+  margin-top: 64px;
+  padding-top: 36px;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+
+.legal-nav a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .legal-wrap { padding: 100px 22px 80px; }
+  .contact-body { grid-template-columns: 1fr; gap: 40px; }
+  .ct-row { grid-template-columns: 1fr 1fr; }
+  .ct-row span:nth-child(3) { grid-column: 1 / -1; }
+  .ct-row span:nth-child(4) { display: none; }
+}

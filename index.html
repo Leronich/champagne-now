@@ -395,5 +395,177 @@
     }, {passive:false});
   })();
 </script>
+
+<!-- AGE GATE -->
+<div id="age-gate" style="display:none">
+  <div class="ag-overlay"></div>
+  <div class="ag-box">
+    <div class="ag-eyebrow">
+      <span class="ag-rule"></span>
+      <span>Champagne.now</span>
+      <span class="ag-rule"></span>
+    </div>
+    <h2 class="ag-title">Welcome to the<br/>world of Champagne</h2>
+    <p class="ag-text">To visit this site, you must be of legal drinking age in your country of residence. If no such law exists, you must be over 18.</p>
+    <p class="ag-question">Are you of legal drinking age?</p>
+    <div class="ag-btns">
+      <button class="btn btn--filled" onclick="agAccept()">Yes <span class="arrow"></span></button>
+      <button class="btn btn--ghost" onclick="agDecline()">No <span class="arrow"></span></button>
+    </div>
+    <p class="ag-disclaimer">Alcohol abuse is hazardous to your health. Please enjoy responsibly.</p>
+    <div class="ag-links">
+      <a href="/en/legal/terms/">Terms</a>
+      <a href="/en/legal/privacy/">Privacy</a>
+      <a href="/en/legal/cookies/">Cookies</a>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" style="display:none">
+  <div class="cb-inner">
+    <p class="cb-text">We use cookies to enhance your experience and to analyse traffic. See our <a href="/en/legal/cookies/">Cookie Policy</a> and <a href="/en/legal/privacy/">Privacy Policy</a>. This site contains affiliate links — see our <a href="/en/legal/affiliate/">Affiliate Disclosure</a>.</p>
+    <div class="cb-btns">
+      <button class="cb-accept" onclick="cbAccept()">Accept</button>
+      <button class="cb-decline" onclick="cbDecline()">Decline</button>
+    </div>
+  </div>
+</div>
+
+<style>
+/* AGE GATE */
+#age-gate {
+  position:fixed;inset:0;z-index:9999;
+  display:flex!important;align-items:center;justify-content:center;
+}
+.ag-overlay {
+  position:absolute;inset:0;
+  background:rgba(10,8,7,.96);
+  backdrop-filter:blur(8px);
+}
+.ag-box {
+  position:relative;z-index:1;
+  max-width:540px;width:90%;
+  border:1px solid var(--gold);
+  padding:64px 48px 48px;
+  text-align:center;
+  background:var(--noir);
+}
+.ag-eyebrow {
+  display:flex;align-items:center;justify-content:center;
+  gap:16px;margin-bottom:36px;
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--gold);
+}
+.ag-rule {width:32px;height:1px;background:var(--gold)}
+.ag-title {
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(32px,5vw,52px);line-height:1.05;
+  color:var(--cream);margin-bottom:24px;
+}
+.ag-text {
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:16px;line-height:1.7;color:var(--cream-dim);
+  margin-bottom:28px;
+}
+.ag-question {
+  font-family:'EB Garamond',serif;
+  font-size:11px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:28px;
+}
+.ag-btns {display:flex;gap:16px;justify-content:center;margin-bottom:32px;flex-wrap:wrap}
+.ag-disclaimer {
+  font-family:'EB Garamond',serif;font-style:italic;
+  font-size:12px;color:var(--cream-dim);opacity:.6;
+  margin-bottom:20px;
+}
+.ag-links {
+  display:flex;gap:24px;justify-content:center;
+  font-family:'EB Garamond',serif;font-size:11px;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--cream-dim);opacity:.5;
+}
+.ag-links a:hover {color:var(--gold);opacity:1}
+
+/* COOKIE BANNER */
+#cookie-banner {
+  position:fixed;bottom:0;left:0;right:0;z-index:8888;
+  background:rgba(10,8,7,.95);
+  border-top:1px solid var(--hairline);
+  backdrop-filter:blur(10px);
+  padding:20px 40px;
+}
+.cb-inner {
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;gap:32px;flex-wrap:wrap;
+}
+.cb-text {
+  flex:1;font-family:'EB Garamond',serif;font-style:italic;
+  font-size:13px;line-height:1.65;color:var(--cream-dim);
+}
+.cb-text a {color:var(--gold);border-bottom:1px solid var(--hairline)}
+.cb-text a:hover {border-color:var(--gold)}
+.cb-btns {display:flex;gap:12px}
+.cb-accept,.cb-decline {
+  font-family:'EB Garamond',serif;
+  font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+  padding:10px 22px;border:1px solid var(--gold);
+  cursor:pointer;transition:all .3s;
+}
+.cb-accept {background:var(--gold);color:var(--noir)}
+.cb-accept:hover {background:transparent;color:var(--gold)}
+.cb-decline {background:transparent;color:var(--cream-dim)}
+.cb-decline:hover {color:var(--gold)}
+@media(max-width:640px){
+  #cookie-banner{padding:16px 20px}
+  .cb-inner{gap:16px}
+  .ag-box{padding:48px 24px 36px}
+}
+</style>
+
+<script>
+// AGE GATE
+(function(){
+  if(localStorage.getItem('cn_age') === '1') return;
+  document.getElementById('age-gate').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+})();
+
+function agAccept(){
+  localStorage.setItem('cn_age','1');
+  document.getElementById('age-gate').style.display = 'none';
+  document.body.style.overflow = '';
+  showCookieBanner();
+}
+
+function agDecline(){
+  window.location.href = 'https://www.google.com';
+}
+
+// COOKIE BANNER
+function showCookieBanner(){
+  if(localStorage.getItem('cn_cookies')) return;
+  document.getElementById('cookie-banner').style.display = 'block';
+}
+
+function cbAccept(){
+  localStorage.setItem('cn_cookies','1');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+
+function cbDecline(){
+  localStorage.setItem('cn_cookies','0');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+
+// Show cookie banner if age already accepted
+(function(){
+  if(localStorage.getItem('cn_age') === '1' && !localStorage.getItem('cn_cookies')){
+    document.getElementById('cookie-banner').style.display = 'block';
+  }
+})();
+</script>
+
 </body>
 </html>
