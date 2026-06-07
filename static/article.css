@@ -16,7 +16,7 @@
 .nav.scrolled ~ .breadcrumb-bar { top: 50px; }
 .breadcrumb-inner {
   font-family: 'EB Garamond', serif;
-  font-size: 11px;
+  font-size: 15px;
   letter-spacing: .28em;
   text-transform: uppercase;
   color: var(--cream-dim);
@@ -47,7 +47,7 @@
 }
 .art-badge {
   font-family: 'EB Garamond', serif;
-  font-size: 10px; letter-spacing: .42em;
+  font-size: 15px; letter-spacing: .42em;
   text-transform: uppercase;
   color: var(--noir);
   background: var(--gold);
@@ -87,7 +87,7 @@
   display: flex; gap: 36px; flex-wrap: wrap;
   margin-top: 32px;
   font-family: 'EB Garamond', serif;
-  font-size: 12px; letter-spacing: .32em;
+  font-size: 15px; letter-spacing: .32em;
   text-transform: uppercase;
   color: var(--cream-dim);
 }
@@ -220,7 +220,7 @@
 }
 .wca-style {
   font-family: 'EB Garamond', serif;
-  font-size: 11px; letter-spacing: .3em;
+  font-size: 15px; letter-spacing: .3em;
   text-transform: uppercase; color: var(--gold);
 }
 .wca-note {
@@ -237,12 +237,12 @@
 }
 .wca-price {
   font-family: 'EB Garamond', serif;
-  font-size: 13px; color: var(--gold);
+  font-size: 15px; color: var(--gold);
   letter-spacing: .1em;
 }
 .wca-link {
   font-family: 'EB Garamond', serif;
-  font-style: italic; font-size: 12px;
+  font-style: italic; font-size: 15px;
   letter-spacing: .3em; text-transform: uppercase;
   color: var(--cream-dim);
   border-bottom: 1px solid var(--hairline);
@@ -269,12 +269,12 @@
 }
 .pi-cuvee {
   font-family: 'EB Garamond', serif;
-  font-style: italic; font-size: 14px;
+  font-style: italic; font-size: 15px;
   color: var(--gold); margin-left: 12px;
 }
 .pi-price {
   font-family: 'EB Garamond', serif;
-  font-size: 13px; color: var(--cream-dim);
+  font-size: 15px; color: var(--cream-dim);
   margin-left: auto;
 }
 .pi-header {
@@ -287,7 +287,7 @@
 }
 .grower-link, .pi-link {
   font-family: 'EB Garamond', serif;
-  font-size: 12px; letter-spacing: .3em;
+  font-size: 15px; letter-spacing: .3em;
   text-transform: uppercase; color: var(--gold);
   align-self: flex-start;
   border-bottom: 1px solid var(--hairline);
@@ -326,7 +326,7 @@
 }
 .aff-label {
   font-family: 'EB Garamond', serif;
-  font-size: 10px; letter-spacing: .42em;
+  font-size: 15px; letter-spacing: .42em;
   text-transform: uppercase; color: var(--gold);
   display: block; margin-bottom: 14px;
 }
@@ -338,7 +338,7 @@
 .affiliate-stay strong, .affiliate-accessory strong { color: var(--cream); }
 .aff-link {
   font-family: 'EB Garamond', serif;
-  font-style: italic; font-size: 13px;
+  font-style: italic; font-size: 15px;
   letter-spacing: .28em; text-transform: uppercase;
   color: var(--gold);
   border-bottom: 1px solid var(--gold);
@@ -349,7 +349,7 @@
 .visit-btn { margin-top: 18px; }
 .visit-address, .visit-meta {
   font-family: 'EB Garamond', serif;
-  font-size: 13px; letter-spacing: .2em;
+  font-size: 15px; letter-spacing: .2em;
   color: var(--cream-dim); margin-top: 8px;
 }
 
@@ -370,7 +370,7 @@
 }
 .inline-quiz-link {
   font-family: 'EB Garamond', serif;
-  font-size: 11px; letter-spacing: .4em;
+  font-size: 15px; letter-spacing: .4em;
   text-transform: uppercase; color: var(--gold);
   border-bottom: 1px solid var(--gold);
   padding-bottom: 3px;
@@ -401,7 +401,7 @@
 }
 .ps-name {
   font-family: 'EB Garamond', serif;
-  font-size: 11px; letter-spacing: .4em;
+  font-size: 15px; letter-spacing: .4em;
   text-transform: uppercase; color: var(--gold);
   display: block; margin-bottom: 10px;
 }
@@ -412,7 +412,7 @@
 }
 .ps-why {
   font-family: 'EB Garamond', serif;
-  font-style: italic; font-size: 14.5px;
+  font-style: italic; font-size: 15px;
   line-height: 1.65; color: var(--cream-dim);
 }
 
@@ -439,7 +439,7 @@
 }
 .ms-practical {
   font-family: 'EB Garamond', serif;
-  font-style: italic; font-size: 13px;
+  font-style: italic; font-size: 15px;
   color: var(--gold);
 }
 
@@ -462,7 +462,7 @@
 }
 .eat-addr {
   font-family: 'EB Garamond', serif;
-  font-size: 11.5px; letter-spacing: .2em;
+  font-size: 15px; letter-spacing: .2em;
   color: var(--gold); text-transform: uppercase;
 }
 .eat-why {
@@ -505,7 +505,7 @@
 }
 .pc-price {
   font-family: 'EB Garamond', serif;
-  font-size: 13px; color: var(--cream-dim);
+  font-size: 15px; color: var(--cream-dim);
 }
 .pc-why {
   font-family: 'EB Garamond', serif;
@@ -550,7 +550,7 @@
 }
 .num-label {
   font-family: 'EB Garamond', serif;
-  font-size: 11px; letter-spacing: .36em;
+  font-size: 15px; letter-spacing: .36em;
   text-transform: uppercase; color: var(--cream-dim);
 }
 
@@ -587,13 +587,13 @@
   gap: 48px; flex-wrap: wrap;
   margin-top: 40px;
   font-family: 'EB Garamond', serif;
-  font-style: italic; font-size: 13px;
+  font-style: italic; font-size: 15px;
   color: var(--cream-dim);
 }
 .quiz-strip-meta b {
   font-style: normal; color: var(--gold);
   font-weight: 500; letter-spacing: .32em;
-  text-transform: uppercase; font-size: 10px;
+  text-transform: uppercase; font-size: 15px;
   display: block; margin-bottom: 5px;
 }
 
@@ -627,7 +627,7 @@
 .related-card:hover::after { transform: scaleX(1); }
 .rc-type {
   font-family: 'EB Garamond', serif;
-  font-size: 10px; letter-spacing: .4em;
+  font-size: 15px; letter-spacing: .4em;
   text-transform: uppercase; color: var(--gold);
 }
 .rc-title {
