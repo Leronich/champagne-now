@@ -460,6 +460,7 @@
 /* AGE GATE */
 #age-gate {
   position:fixed;inset:0;z-index:9999;
+  display:none;
   align-items:center;justify-content:center;
 }
 .ag-overlay {
@@ -556,14 +557,15 @@
     ag.style.display = 'none';
     showCookieBanner();
   } else {
-    ag.style.display = 'flex';
+    ag.style.cssText = 'display:flex!important';
     document.body.style.overflow = 'hidden';
   }
 })();
 
 function agAccept(){
   try { localStorage.setItem('cn_age','1'); } catch(e){}
-  document.getElementById('age-gate').style.display = 'none';
+  var ag = document.getElementById('age-gate');
+  ag.style.cssText = 'display:none!important';
   document.body.style.overflow = '';
   showCookieBanner();
 }
