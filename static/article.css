@@ -653,3 +653,10 @@
   .wine-cards { grid-template-columns: 1fr; }
   .quiz-strip-meta { gap: 24px; }
 }
+
+/* BYLINE */
+.art-byline {
+  font-family: 'EB Garamond', serif;
+  font-size: 13px; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--cream-dim); margin-bottom: 20px;
+}
