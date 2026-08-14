@@ -1,0 +1,144 @@
+{
+  "_meta": {
+    "role": "Значения, против которых пересчитываются числа статей Champagne.now. НЕ каталог фактов.",
+    "principe": [
+      "Таблица содержит ТОЛЬКО то, на чём текст делает вычисление или с чем сверяется",
+      "порог: пороги регламента, границы правдоподобия, коэффициенты пересчёта.",
+      "Литеральные факты — миллезимы, цены, даты основания домов, имена шеф-де-кав —",
+      "сюда не попадают: их ничто не связывает вычислением, а попытка покрыть их",
+      "раздула бы таблицу до неуправляемого размера и заблокировала бы всё.",
+      "Замер по корпусу 2026-08-14: 100 статей, из них с дозажем 8, с температурой 33,",
+      "с выдержкой 16, с объёмами 36, с градусом 0."
+    ],
+    "confidence": {
+      "primary": "снято с официального источника",
+      "secondary": "по вторичному источнику или по памяти составителя — требует сверки",
+      "editorial": "редакционная граница, не внешний факт"
+    },
+    "regle": "Каждая запись несёт source, confidence и verified_on. Запись с confidence=secondary обязана нести verify_todo с указанием, где сверять.",
+    "verified_on": "2026-08-14"
+  },
+
+  "eu": {
+    "_source": "Регламент (ЕС) 2019/33 — указания на содержание сахара в игристых винах",
+    "sparkling_dosage_g_l": {
+      "brut_nature_max": 3,
+      "extra_brut_max": 6,
+      "brut_max": 12,
+      "extra_dry_min": 12, "extra_dry_max": 17,
+      "sec_min": 17, "sec_max": 32,
+      "demi_sec_min": 32, "demi_sec_max": 50,
+      "doux_min": 50,
+      "unit": "g/l",
+      "note": "Диапазоны перекрываются по построению: вино на 5 г/л законно и Extra Brut, и Brut. Проверка обязана срабатывать только на выход ЗА границу названного стиля, а не на перекрытие.",
+      "source": "Регламент (ЕС) 2019/33, приложение III — пороги переданы оператором",
+      "confidence": "primary", "verified_on": "2026-08-14"
+    }
+  },
+
+  "aoc_champagne": {
+    "_source": "Cahier des charges AOP « Champagne », редакция утверждена comité national INAO 11 сентября 2024",
+    "_document": "https://extranet.inao.gouv.fr/fichier/CDCPNOChampagne20240911.pdf",
+    "_note": "Значения ниже сняты с самого документа (29 страниц), а не с поисковой выдачи: выдача использовалась только чтобы найти файл. Различие существенное — сниппет агрегатора это secondary, официальный текст это primary.",
+    "rendement_butoir_kg_ha": {
+      "value": 15500, "unit": "kg/ha",
+      "citation": "Le rendement butoir visé à l'article D. 645-7 du code rural et de la pêche maritime est fixé à 15 500 kilogrammes de raisins à l'hectare.",
+      "note": "Не путать с годовым рендементом апелласьона, который устанавливается решением на каждый урожай и заметно ниже butoir. Первая редакция этой записи несла 10 400 кг/га — величину другого понятия.",
+      "source": "Cahier des charges AOP Champagne (11.09.2024), ch. I, § VIII-2°, стр. 9",
+      "confidence": "primary", "verified_on": "2026-08-14"
+    },
+    "pressurage_l_par_kg": {
+      "value": 102, "base_kg": 160, "unit": "l/marc",
+      "citation": "dans la limite d'un volume de 102 litres de moûts débourbés pour 160 kilogrammes de raisins mis en œuvre",
+      "source": "Cahier des charges AOP Champagne (11.09.2024), стр. 10",
+      "confidence": "primary", "verified_on": "2026-08-14"
+    },
+    "elevage_min_mois": {
+      "non_millesime": 15, "millesime": 36, "avant_degorgement": 12,
+      "unit": "мес",
+      "base": "от даты тиража в бутылку (date du tirage en bouteille), а не от начала выдержки на осадке",
+      "citation": "période d'élevage de quinze mois minimum à compter de la date du tirage en bouteille | pour les millésimés : trente-six mois minimum | Le dégorgement ne peut être effectué avant une période de douze mois à compter de la date de tirage",
+      "note": "Точка отсчёта выяснена сверкой и оказалась не той, что предполагалась: срок идёт от тиража, а не «на осадке». Время на осадке — нижняя оценка общей выдержки, поэтому сравнение с ним остаётся корректным по направлению.",
+      "source": "Cahier des charges AOP Champagne (11.09.2024)",
+      "confidence": "primary", "verified_on": "2026-08-14"
+    },
+    "surface_aire_ha": {
+      "value": 34000, "unit": "ha",
+      "note": "Порядок величины засаженной площади. В cahier des charges этой цифры НЕТ — документ задаёт границы аира списком коммун, а не гектарами. Статистика ведётся Comité Champagne, поэтому запись остаётся secondary.",
+      "source": "оценка засаженной площади апелласьона",
+      "confidence": "secondary", "verified_on": "2026-08-14",
+      "verify_todo": "снять актуальную засаженную площадь с годового отчёта Comité Champagne (champagne.fr), в cahier des charges её нет"
+    }
+  },
+
+  "constants": {
+    "bottle_volume_l": {
+      "value": 0.75, "unit": "l",
+      "source": "стандартная бутылка",
+      "confidence": "primary", "verified_on": "2026-08-14"
+    },
+    "litres_per_hl": {
+      "value": 100, "unit": "l/hl",
+      "source": "определение гектолитра",
+      "confidence": "primary", "verified_on": "2026-08-14"
+    },
+    "fahrenheit_offset": {
+      "value": 32, "factor": 1.8,
+      "note": "°F = °C x 1,8 + 32. В корпусе соседствуют обе шкалы («46°F» рядом с «8°C»), поэтому пересчёт нужен модулю, а не только читателю.",
+      "source": "определение шкалы Фаренгейта",
+      "confidence": "primary", "verified_on": "2026-08-14"
+    }
+  },
+
+  "plausibility": {
+    "_role": "Границы здравого смысла для scripts/check_coherence.py. Намеренно ШИРОКИЕ: они ловят абсурд, а не спорят о пограничном случае. Узкая граница рождает ложные обвинения, а это дороже пропущенного сомнения — гейт, который кричит зря, приучает себя игнорировать.",
+    "abv_pct": {
+      "min": 11, "max": 13,
+      "note": "Диапазон для шампанского, заметно уже общевинного. ВНИМАНИЕ: на 2026-08-14 в корпусе ноль упоминаний градуса, проверка написана на вырост и сейчас ни на чём не срабатывает.",
+      "source": "редакционная граница для шампанского",
+      "confidence": "editorial", "verified_on": "2026-08-14"
+    },
+    "service_temp_c": {
+      "min": 4, "max": 14,
+      "note": "Температура подачи. В корпусе: 6, 8 °C и 46 °F (= 7,8 °C).",
+      "source": "редакционная граница",
+      "confidence": "editorial", "verified_on": "2026-08-14"
+    },
+    "cellar_temp_c": {
+      "min": 9, "max": 14,
+      "note": "Погреба и крайеры — отдельный диапазон. В корпусе 11 °C и 12 °C относятся к меловым погребам Реймса, а не к подаче; без этого исключения проверка подачи обвиняла бы верный текст.",
+      "source": "редакционная граница",
+      "confidence": "editorial", "verified_on": "2026-08-14"
+    },
+    "temp_absurde_c": {
+      "min": -10, "max": 40,
+      "note": "Второй уровень, применяется к ЛЮБОМУ упоминанию °C вне контекста подачи и погреба. Очень широкий: что выпадает — опечатка или перепутанная шкала, а не разногласие.",
+      "source": "редакционная граница",
+      "confidence": "editorial", "verified_on": "2026-08-14"
+    },
+    "aging_years": {
+      "min": 1, "max": 60,
+      "note": "Потенциал выдержки в годах. Верхняя граница пропускает престижные кюве и старые миллезимы.",
+      "source": "редакционная граница",
+      "confidence": "editorial", "verified_on": "2026-08-14"
+    },
+    "rendement_hl_ha": {
+      "min": 5, "max": 120,
+      "note": "Граница для сопоставления площади и производства, выведенного из прозы. Шире регламентного потолка намеренно: сопоставление — это догадка, и выпадение за ЭТИ границы означает абсурд, а не нарушение регламента.",
+      "source": "редакционная граница вокруг потолка AOC",
+      "confidence": "editorial", "verified_on": "2026-08-14"
+    },
+    "production_bottles": {
+      "min": 1000, "max": 400000000,
+      "note": "Канарейка на разделитель тысяч. Годовое производство дома ниже нижней границы почти всегда означает, что «40,000 bottles» прочитано как 40. Верхняя граница — порядок производства всего апелласьона.",
+      "source": "редакционная граница",
+      "confidence": "editorial", "verified_on": "2026-08-14"
+    },
+    "surface_ha": {
+      "min": 0.1, "max": 40000,
+      "note": "От моноплана вроде Clos du Mesnil (1,84 га — в корпусе есть) до площади всего апелласьона.",
+      "source": "редакционная граница",
+      "confidence": "editorial", "verified_on": "2026-08-14"
+    }
+  }
+}
