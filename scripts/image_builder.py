@@ -1,224 +1,227 @@
 """
-champagne_render/image_builder.py
+scripts/image_builder.py
 Тонкий клиент к kohexa-photo-index для сайта Champagne.now.
 
 НЕ содержит:
 - ключа Unsplash (он в kohexa-photo-index)
-- логики скачивания
-- собственной дедупликации
+- логики скачивания — фотографии отдаются хотлинком с images.unsplash.com,
+  перехостить их лицензия запрещает
+- сборки атрибуции: `credit_html` приходит готовым из движка. Собирать её
+  здесь означало бы воспроизвести ровно тот класс ошибок, ради которого
+  движок и отдаёт готовый HTML.
 
-Контракт:
-  photo(key, role, lang) -> {"url": str, "credit_html": str, "source": str, "status": str}
-  request_photos(page_slug, page_type, lang) -> list[PhotoResult]
+Контракт (см. kohexa-photo-index/demandes/LISEZ-MOI.md):
+  заявка   demandes/champagnenow-{дата}.json  → {"project", "requests": [...]}
+  ответ    catalogue.json[request_id]         → {"status", "candidates": [...]}
+  ключ     champagnenow-{slug}-{role}
+
+Ответ асинхронный. Потребитель обязан уметь опубликовать страницу без фото и
+подставить его вторым проходом — синхронного ожидания в контракте нет.
 """
 
 import json
-import os
 from pathlib import Path
-from typing import Optional
-from datetime import date
 
 # Пути — абсолютные, не относительные от pipeline.py
 PHOTO_INDEX_ROOT = Path(r"D:\бизнес\домены\kohexa-photo-index")
 CATALOGUE        = PHOTO_INDEX_ROOT / "catalogue.json"
 DEMANDES_DIR     = PHOTO_INDEX_ROOT / "demandes"
-VOCAB_MODULE     = "vocabulaire.champagne"
 
-# Импорт словаря
-from vocabulaire.champagne import PAGE_TYPE_RULES, ATTRIBUTION_TEMPLATES, ILLUSTRATION_LABEL
+PROJECT = "champagnenow"   # BUDGET_KEY в vocabulaire/champagne.py
+VOCAB   = "champagne"      # ключ в словаре vocabulaires движка
+
+# Дефисы, не подчёркивания — так роли называются в контракте
+ROLES = ("hero", "inline-1", "inline-2")
+
+# ≥1.6 для hero: он же кормит баннер хаба, обрезаемый в 2.5:1
+RATIO_MIN = {"hero": 1.6, "inline-1": 1.2, "inline-2": 1.2}
+
+# Буфер кандидатов против отбраковки на вычитке. Для hero цена ошибки выше.
+BUFFER = {"hero": 4, "inline-1": 2, "inline-2": 2}
 
 # ── СТАТУСЫ ─────────────────────────────────────────────────────────────────
 
-STATUS_PENDING  = "pending"
-STATUS_READY    = "ready"
-STATUS_MISSING  = "missing"   # нет в каталоге — страница публикуется без фото
-STATUS_IDEOGRAM = "ideogram"  # fallback к генерации, нужна маркировка
+STATUS_PENDING = "pending"   # заявка в очереди
+STATUS_READY   = "ready"     # кандидаты подготовлены
+STATUS_FAILED  = "failed"    # движок не смог, причина в reason
+STATUS_MISSING = "missing"   # заявки на это вообще не подавали
 
 
-# ── ОСНОВНЫЕ ФУНКЦИИ ────────────────────────────────────────────────────────
+# ── КЛЮЧИ ───────────────────────────────────────────────────────────────────
 
-def photo(key: str, role: str, lang: str = "en") -> dict:
-    """
-    Получить фото из каталога по ключу и роли.
-    key  — slug статьи (например "bollinger", "cote-des-blancs")
-    role — "hero" | "inline_1" | "inline_2"
-    lang — "en" | "fr" (для локализации credit_html)
-
-    Возвращает словарь с полями:
-      url         — CDN URL изображения (или None если pending/missing)
-      credit_html — готовый HTML атрибуции (Unsplash) или label (Ideogram)
-      source      — "unsplash" | "ideogram" | None
-      status      — "ready" | "pending" | "missing" | "ideogram"
-    """
-    catalogue = _load_catalogue()
-    photo_key = f"{key}:{role}"
-
-    if photo_key not in catalogue:
-        return _pending_result(key, role)
-
-    entry = catalogue[photo_key]
-    source = entry.get("source", "unsplash")
-
-    if source == "unsplash":
-        return {
-            "url":         entry["url"],
-            "credit_html": _build_credit_html(entry, lang),
-            "source":      "unsplash",
-            "status":      STATUS_READY,
-        }
-    elif source == "ideogram":
-        return {
-            "url":         entry["url"],
-            "credit_html": ILLUSTRATION_LABEL.get(lang, "Illustration"),
-            "source":      "ideogram",
-            "status":      STATUS_IDEOGRAM,
-        }
-    else:
-        return _pending_result(key, role)
+def request_id(slug: str, role: str) -> str:
+    """Идентификатор ответа в catalogue.json. Дефисы, не двоеточия."""
+    return f"{PROJECT}-{slug}-{role}"
 
 
-def request_photos(page_slug: str, page_type: str, lang: str = "en") -> list:
-    """
-    Положить заявку на фото для страницы в очередь kohexa-photo-index.
-    Вызывается из render.py перед публикацией статьи.
-
-    page_slug — slug страницы ("bollinger", "cote-des-blancs")
-    page_type — тип из PAGE_TYPE_RULES ("house_profile", "terroir", ...)
-    lang      — "en" | "fr"
-
-    Возвращает список ролей с текущим статусом:
-    [{"role": "hero", "status": "pending"}, ...]
-    """
-    rules = PAGE_TYPE_RULES.get(page_type, {})
-    query_builder = rules.get("query_builder")
-
-    if query_builder is None:
-        return []
-
-    queries = query_builder(page_slug)
-    if not queries:
-        # Нет терминов для поиска — пробуем общий fallback
-        queries = [f"champagne {page_type.replace('_', ' ')}"]
-
-    demande = {
-        "project":    "champagnenow",
-        "page_slug":  page_slug,
-        "page_type":  page_type,
-        "lang":       lang,
-        "date":       date.today().isoformat(),
-        "roles": {
-            "hero":     {"queries": queries, "min_w": 1200, "min_h": 400},
-            "inline_1": {"queries": queries, "min_w": 800,  "min_h": 400},
-        },
-        "avoid_synthetic": True,
-        "fallback_to_ideogram": rules.get("fallback_to_ideogram", False),
-        "min_candidates": rules.get("min_candidates", 3),
-    }
-
-    # Записать заявку
-    DEMANDES_DIR.mkdir(parents=True, exist_ok=True)
-    demande_path = DEMANDES_DIR / f"champagnenow-{page_slug}-{date.today().isoformat()}.json"
-    with open(demande_path, "w", encoding="utf-8") as f:
-        json.dump(demande, f, ensure_ascii=False, indent=2)
-
-    return [
-        {"role": "hero",     "status": STATUS_PENDING},
-        {"role": "inline_1", "status": STATUS_PENDING},
-    ]
-
-
-def render_image_block(key: str, role: str, lang: str = "en",
-                       alt: str = "", css_class: str = "art-image") -> str:
-    """
-    Готовый HTML-блок для вставки в шаблон.
-    Если статус pending или missing — возвращает пустую строку (страница без фото).
-    Если ideogram — рендерит с другим CSS классом и без attribution-ссылки на Unsplash.
-    """
-    result = photo(key, role, lang)
-
-    if result["status"] in (STATUS_PENDING, STATUS_MISSING):
-        return ""  # публикуем без фото, не с плейсхолдером
-
-    if result["status"] == STATUS_IDEOGRAM:
-        return (
-            f'<figure class="{css_class} {css_class}--illustration">'
-            f'<img src="{result["url"]}" alt="{alt}" loading="lazy" />'
-            f'<figcaption class="art-image-caption art-image-caption--illustration">'
-            f'{result["credit_html"]}'
-            f'</figcaption>'
-            f'</figure>'
-        )
-
-    # Unsplash — с attribution
-    return (
-        f'<figure class="{css_class}">'
-        f'<img src="{result["url"]}" alt="{alt}" loading="lazy" />'
-        f'<figcaption class="art-image-caption">'
-        f'{result["credit_html"]}'
-        f'</figcaption>'
-        f'</figure>'
-    )
-
-
-# ── ВСПОМОГАТЕЛЬНЫЕ ────────────────────────────────────────────────────────
+# ── ЧТЕНИЕ ──────────────────────────────────────────────────────────────────
 
 def _load_catalogue() -> dict:
-    """Читает catalogue.json из kohexa-photo-index."""
     if not CATALOGUE.exists():
         return {}
     with open(CATALOGUE, encoding="utf-8") as f:
         return json.load(f)
 
 
-def _build_credit_html(entry: dict, lang: str) -> str:
-    """Строит локализованный attribution HTML для Unsplash-фото."""
-    template = ATTRIBUTION_TEMPLATES.get(lang, ATTRIBUTION_TEMPLATES["en"])
-    return template.format(
-        photographer=entry.get("photographer_name", ""),
-        photographer_url=entry.get("photographer_url", ""),
-        photo_url=entry.get("photo_url", ""),
-    )
+def photo(slug: str, role: str = "hero") -> dict:
+    """
+    Фотография для роли статьи.
 
+    slug — slug статьи ("bollinger", "cote-des-blancs")
+    role — "hero" | "inline-1" | "inline-2"
 
-def _pending_result(key: str, role: str) -> dict:
+    Возвращает:
+      url         — hotlink на images.unsplash.com с параметрами рендера
+      credit_html — готовая атрибуция от движка (не собирается здесь)
+      legende     — ручная подпись, если её писали; иначе пустая строка
+      ratio       — соотношение сторон выбранного кадра
+      photo_key   — устойчивый ключ фото в реестре
+      status      — ready | pending | failed | missing
+      reason      — только при failed
+    """
+    entry = _load_catalogue().get(request_id(slug, role))
+
+    if entry is None:
+        return _empty(STATUS_MISSING)
+
+    status = entry.get("status", STATUS_PENDING)
+    if status != STATUS_READY:
+        result = _empty(status)
+        if entry.get("reason"):
+            result["reason"] = entry["reason"]
+        return result
+
+    candidates = entry.get("candidates") or []
+    if not candidates:
+        # ready без кандидатов — противоречие в ответе, трактуем как отсутствие
+        return _empty(STATUS_FAILED, reason="ready_without_candidates")
+
+    # Первый кандидат — тот, который вернул бы простой отбор; остальные буфер
+    best = candidates[0]
     return {
-        "url":         None,
-        "credit_html": "",
-        "source":      None,
-        "status":      STATUS_PENDING,
+        "url":         best.get("url", ""),
+        "credit_html": best.get("credit_html", ""),
+        "legende":     best.get("legende", ""),
+        "ratio":       best.get("ratio"),
+        "photo_key":   best.get("photo_key", ""),
+        "status":      STATUS_READY,
     }
 
 
-# ── BATCH HELPER ────────────────────────────────────────────────────────────
+def photos_for(slug: str) -> dict:
+    """Все роли статьи разом: {role: результат photo()}."""
+    return {role: photo(slug, role) for role in ROLES}
 
-def request_all_pages(pages: list, lang: str = "en") -> dict:
-    """
-    Подать заявки на фото для всех страниц сразу.
-    pages — список словарей {"slug": str, "type": str, "lang": str}
 
-    Возвращает сводку: {"slug": [роли со статусами]}
+def _empty(status: str, reason: str = "") -> dict:
+    result = {
+        "url":         None,
+        "credit_html": "",
+        "legende":     "",
+        "ratio":       None,
+        "photo_key":   "",
+        "status":      status,
+    }
+    if reason:
+        result["reason"] = reason
+    return result
+
+
+# ── РЕНДЕР ──────────────────────────────────────────────────────────────────
+
+def render_image_block(slug: str, role: str = "hero", alt: str = "",
+                       css_class: str = "art-image") -> str:
     """
-    summary = {}
-    for page in pages:
-        slug      = page["slug"]
-        page_type = page.get("type", "terroir")
-        page_lang = page.get("lang", lang)
-        results   = request_photos(slug, page_type, page_lang)
-        summary[slug] = results
-        print(f"  → {slug} ({page_type}): {len(results)} roles queued")
-    return summary
+    Готовый HTML-блок для шаблона.
+
+    Пока статус не ready — возвращает пустую строку: страница публикуется без
+    фотографии, а не с плейсхолдером. Плейсхолдер пришлось бы вычищать вторым
+    проходом, пустота исчезает сама.
+    """
+    result = photo(slug, role)
+    if result["status"] != STATUS_READY or not result["url"]:
+        return ""
+
+    caption = result["legende"]
+    credit = result["credit_html"]
+    # Подпись и атрибуция — разные вещи: подпись описывает кадр, атрибуция
+    # обязательна по лицензии. Атрибуция не опускается никогда.
+    inner = f"{caption} {credit}".strip() if caption else credit
+
+    return (
+        f'<figure class="{css_class}">'
+        f'<img src="{result["url"]}" alt="{alt}" loading="lazy" />'
+        f'<figcaption class="art-image-caption">{inner}</figcaption>'
+        f'</figure>'
+    )
+
+
+# ── ЗАЯВКИ ──────────────────────────────────────────────────────────────────
+
+def build_request(slug: str, role: str, subniche: str, section: str = "",
+                  wine_type: str = None, priority_batch: str = "",
+                  backfill: bool = False) -> dict:
+    """
+    Одна запись в requests[] заявки.
+
+    subniche движок кладёт и в page["slug"], и в page["title_hint"] — именно по
+    нему распознаются регион и стиль. Поэтому это не косметическое поле:
+    от него зависит, что попадёт в отбор.
+
+    wine_type передаётся движку как type_force. Значение, которого нет в
+    TYPE_MARKERS, забанило бы маркеры ВСЕХ типов и обнулило вивьер, поэтому
+    вызывающий обязан передавать только известный ключ либо None.
+    """
+    request = {
+        "request_id":       request_id(slug, role),
+        "subniche":         subniche,
+        "role":             role,
+        "vocab":            VOCAB,
+        "quantity_needed":  1,
+        "quantity_buffer":  BUFFER.get(role, 2),
+        "aspect_ratio_min": RATIO_MIN.get(role, 1.2),
+        "backfill":         backfill,
+    }
+    if section:
+        request["section"] = section
+    if wine_type:
+        request["wine_type"] = wine_type
+    if priority_batch:
+        request["priority_batch"] = priority_batch
+    return request
+
+
+def write_demande(requests: list, date_iso: str) -> Path:
+    """Кладёт заявку в demandes/. Один файл на проект и партию."""
+    DEMANDES_DIR.mkdir(parents=True, exist_ok=True)
+    path = DEMANDES_DIR / f"{PROJECT}-{date_iso}.json"
+    payload = {"project": PROJECT, "requests": requests}
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+    return path
+
+
+# ── СВОДКА ──────────────────────────────────────────────────────────────────
+
+def summary(slugs: list) -> dict:
+    """Сколько ролей в каком статусе — чтобы видеть готовность до рендера."""
+    counts = {STATUS_READY: 0, STATUS_PENDING: 0,
+              STATUS_FAILED: 0, STATUS_MISSING: 0}
+    for slug in slugs:
+        for result in photos_for(slug).values():
+            counts[result["status"]] = counts.get(result["status"], 0) + 1
+    return counts
 
 
 if __name__ == "__main__":
-    # Быстрая проверка — подать заявки на первые 5 страниц
-    test_pages = [
-        {"slug": "cote-des-blancs",   "type": "terroir",      "lang": "en"},
-        {"slug": "bollinger",          "type": "house_profile", "lang": "en"},
-        {"slug": "blanc-de-blancs",    "type": "wine_styles",   "lang": "en"},
-        {"slug": "champagne-harvest",  "type": "in_the_cellar", "lang": "en"},
-        {"slug": "epernay-guide",      "type": "visit",         "lang": "en"},
-    ]
-    print("Submitting photo requests to kohexa-photo-index...")
-    summary = request_all_pages(test_pages)
-    print(f"\nDone. {len(summary)} pages queued.")
-    print("Check kohexa-photo-index/demandes/ for request files.")
+    import sys
+
+    probe = sys.argv[1:] or ["cote-des-blancs", "krug", "reims-guide"]
+    print(f"Каталог: {CATALOGUE}")
+    print(f"существует: {CATALOGUE.exists()}\n")
+    for slug in probe:
+        print(slug)
+        for role, result in photos_for(slug).items():
+            note = result.get("reason", "")
+            url = (result["url"] or "")[:60]
+            print(f"  {role:<9} {result['status']:<8} {url}{note}")
