@@ -645,13 +645,42 @@
   .numbers-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
-  .art-hero { padding: 130px 22px 60px; }
-  .art-body-inner { padding: 0 22px; }
-  .breadcrumb-bar { padding: 8px 22px; }
-  .quiz-strip, .related { padding-left: 22px; padding-right: 22px; }
+  .nav-right .res { display: none; }
+  .breadcrumb-bar { padding: 8px 16px; }
+  .breadcrumb-inner {
+    font-size: 11px;
+    letter-spacing: .16em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+  .breadcrumb-inner a { display: none; }
+  .breadcrumb-inner .bc-sep { display: none; }
+  .breadcrumb-inner span:last-child {
+    display: block;
+    color: var(--cream-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .art-hero { padding: 110px 20px 48px; min-height: auto; }
+  .art-hero-inner { max-width: 100%; }
+  .art-title { font-size: clamp(32px, 8vw, 48px); margin-bottom: 20px; }
+  .art-deck { font-size: 17px; line-height: 1.65; }
+  .art-eyebrow { margin-bottom: 20px; gap: 12px; flex-wrap: wrap; }
+  .art-badge { font-size: 11px; letter-spacing: .28em; }
+  .art-body-inner { padding: 0 20px; }
+  .art-section { padding: 36px 0; }
+  .art-section-label { margin-bottom: 14px; }
+  .quiz-strip, .related { padding-left: 20px; padding-right: 20px; }
+  .quiz-strip-meta { gap: 20px; flex-direction: column; align-items: center; }
+  .related-grid { grid-template-columns: 1fr; gap: 16px; }
   .numbers-grid { grid-template-columns: 1fr; }
   .wine-cards { grid-template-columns: 1fr; }
-  .quiz-strip-meta { gap: 24px; }
+  .sommelier-aside { padding: 28px 20px; }
+  .growers-list { gap: 20px; }
+  .process-steps { gap: 24px; }
 }
 
 /* BYLINE */

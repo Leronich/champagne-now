@@ -355,15 +355,21 @@ a{color:inherit;text-decoration:none}
   .wine-card .bottle svg{height:280px}
 }
 @media (max-width:640px){
-  .nav{padding:18px 22px;grid-template-columns:auto 1fr auto}
+  .nav{padding:14px 16px;grid-template-columns:auto 1fr auto}
   .nav-links{display:none}
   .nav-right .lang{display:none}
+  .nav-right .res{display:none}
+  .wordmark{font-size:14px;letter-spacing:.28em}
   .deco-frame{inset:14px}
-  .region,.wine,.quiz{padding-left:22px;padding-right:22px}
-  .wine .section-head{padding:0 22px}
-  .wine-rail{padding:30px 22px 70px}
-  .quiz-inner{padding:80px 28px 70px}
-  .foot{padding:40px 22px;grid-template-columns:1fr;text-align:center}
+  .region,.wine,.quiz{padding-left:16px;padding-right:16px}
+  .wine .section-head{padding:0 16px}
+  .wine-rail{padding:30px 16px 70px}
+  .quiz-inner{padding:60px 20px 60px}
+  .foot{padding:40px 16px;grid-template-columns:1fr;text-align:center}
   .foot .right{text-align:center}
-  .hero-foot{padding:0 22px 100px}
+  .hero-foot{padding:0 16px 80px}
+  .hero h1{font-size:clamp(42px,13vw,80px)}
+  .hero-sub{font-size:16px;margin-top:24px}
+  .hero-ctas{gap:12px;flex-direction:column;align-items:center}
+  .btn{padding:16px 28px;font-size:11px}
 }
