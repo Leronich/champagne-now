@@ -367,7 +367,8 @@ a{color:inherit;text-decoration:none}
   .quiz-inner{padding:60px 20px 60px}
   .foot{padding:40px 16px;grid-template-columns:1fr;text-align:center}
   .foot .right{text-align:center}
-  .hero-foot{padding:0 16px 80px}
+  .scroll-cue{display:none}
+  .hero-foot{padding:0 16px 60px;flex-direction:column;gap:24px}
   .hero h1{font-size:clamp(42px,13vw,80px)}
   .hero-sub{font-size:16px;margin-top:24px}
   .hero-ctas{gap:12px;flex-direction:column;align-items:center}

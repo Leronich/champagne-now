@@ -646,24 +646,10 @@
 }
 @media (max-width: 640px) {
   .nav-right .res { display: none; }
-  .breadcrumb-bar { padding: 8px 16px; }
-  .breadcrumb-inner {
-    font-size: 11px;
-    letter-spacing: .16em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-  }
-  .breadcrumb-inner a { display: none; }
-  .breadcrumb-inner .bc-sep { display: none; }
-  .breadcrumb-inner span:last-child {
-    display: block;
-    color: var(--cream-dim);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  .breadcrumb-bar { padding: 6px 16px; }
+  .breadcrumb-inner { gap: 6px; overflow: hidden; }
+  .breadcrumb-inner a:not(:last-of-type) { display: none; }
+  .breadcrumb-inner .bc-sep:not(:last-of-type) { display: none; }
   .art-hero { padding: 110px 20px 48px; min-height: auto; }
   .art-hero-inner { max-width: 100%; }
   .art-title { font-size: clamp(32px, 8vw, 48px); margin-bottom: 20px; }
