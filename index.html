@@ -547,8 +547,10 @@
 .cb-decline {background:transparent;color:var(--cream-dim)}
 .cb-decline:hover {color:var(--gold)}
 @media(max-width:640px){
-  #cookie-banner{padding:16px 20px}
-  .cb-inner{gap:16px}
+  #cookie-banner{padding:16px}
+  .cb-inner{flex-direction:column;align-items:stretch;gap:12px}
+  .cb-text{width:100%;text-align:center}
+  .cb-btns{display:flex;gap:8px;justify-content:center}
   .ag-box{padding:48px 24px 36px}
 }
 </style>
