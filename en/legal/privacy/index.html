@@ -2,6 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+<!-- cn-consent-default-v2: отказ по умолчанию, до любого трекера -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied',
+'ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500});
+try{var c=JSON.parse(localStorage.getItem('cn_consent')||'null');
+if(c&&c.exp>Date.now()&&c.analytics===true){gtag('consent','update',{'analytics_storage':'granted'});}
+}catch(e){}
+gtag('js',new Date());gtag('config','G-J8273H5YMH');
+</script>
+<link rel="stylesheet" href="/static/consent.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Privacy Policy — Champagne.now</title>
 <meta name="description" content="Privacy Policy for Champagne.now. How we collect, use, and protect your data." />
@@ -96,13 +107,6 @@
   }, {passive:true});
 })();
 </script>
-<script>
-(function (s, t, a, y, twenty, two) {
-  s.Stay22 = s.Stay22 || {};
-  s.Stay22.params = { lmaID: '6a26f659df1132ff5008cb9d' };
-  twenty = t.createElement(a); two = t.getElementsByTagName(a)[0];
-  twenty.async = 1; twenty.src = y; two.parentNode.insertBefore(twenty, two);
-})(window, document, 'script', 'https://scripts.stay22.com/letmeallez.js');
-</script>
+<script defer src="/static/consent.js"></script>
 </body>
 </html>

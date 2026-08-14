@@ -1,0 +1,67 @@
+/* Баннер согласия. Требования CNIL, влияющие на вёрстку:
+   — «deux boutons présentés au même niveau et sur le même format»: кнопки
+     одинаковы по размеру, весу и цвету. Вариант «принять залито золотом,
+     отказаться бледной ссылкой» именно этим пунктом и запрещён;
+   — крестика закрытия нет: «toute autre action que celle permettant
+     explicitement d'accepter doit être considérée comme un refus», а форма,
+     где закрытие молча означает отказ, лишь путает — пусть отказ будет
+     кнопкой. */
+
+#cn-consent {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+  background: rgba(10, 8, 7, .97);
+  border-top: 1px solid var(--hairline, rgba(201, 168, 76, .25));
+  backdrop-filter: blur(10px);
+  padding: 22px 40px;
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--cream-dim, #b9b2a6);
+}
+#cn-consent[hidden] { display: none; }
+
+.cn-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+}
+.cn-text { flex: 1; min-width: 280px; font-size: 15px; line-height: 1.65; }
+.cn-text b { color: var(--cream, #efe9dd); font-weight: 500; font-style: normal; }
+.cn-text a { color: var(--gold, #c9a84c); border-bottom: 1px solid var(--hairline, rgba(201,168,76,.25)); }
+.cn-text a:hover { border-color: var(--gold, #c9a84c); }
+
+.cn-parties {
+  display: block; margin-top: 8px;
+  font-size: 13px; font-style: italic; opacity: .8;
+}
+
+/* Сетка из двух равных колонок, а не flex по содержимому: «Accepter» длиннее
+   «Refuser» на шесть пикселей, и при min-width кнопки расходились. Требование
+   «même format» проще выполнить геометрией, чем подбором отступов под каждый
+   язык. */
+.cn-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex-shrink: 0; }
+.cn-btns button {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 13px; letter-spacing: .32em; text-transform: uppercase;
+  padding: 11px 26px;
+  min-width: 148px;                     /* одинаковая ширина обеих кнопок */
+  background: transparent;
+  color: var(--cream, #efe9dd);
+  border: 1px solid var(--gold, #c9a84c);
+  cursor: pointer; transition: background .3s, color .3s;
+}
+.cn-btns button:hover { background: var(--gold, #c9a84c); color: var(--noir, #0a0807); }
+.cn-btns button:focus-visible { outline: 2px solid var(--gold, #c9a84c); outline-offset: 3px; }
+
+/* Ссылка возврата к выбору. Согласие отзывается так же просто, как даётся. */
+.cn-revoke {
+  background: none; border: 0; padding: 0;
+  font: inherit; color: inherit; cursor: pointer;
+  border-bottom: 1px solid var(--hairline, rgba(201,168,76,.25));
+}
+.cn-revoke:hover { color: var(--gold, #c9a84c); }
+
+@media (max-width: 640px) {
+  #cn-consent { padding: 16px; }
+  .cn-inner { flex-direction: column; align-items: stretch; gap: 14px; }
+  .cn-text { font-size: 14px; min-width: 0; }
+  .cn-btns { justify-content: stretch; gap: 8px; }
+  .cn-btns button { flex: 1; min-width: 0; padding: 13px 10px; letter-spacing: .18em; }
+}

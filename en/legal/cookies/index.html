@@ -2,6 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+<!-- cn-consent-default-v2: отказ по умолчанию, до любого трекера -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied',
+'ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500});
+try{var c=JSON.parse(localStorage.getItem('cn_consent')||'null');
+if(c&&c.exp>Date.now()&&c.analytics===true){gtag('consent','update',{'analytics_storage':'granted'});}
+}catch(e){}
+gtag('js',new Date());gtag('config','G-J8273H5YMH');
+</script>
+<link rel="stylesheet" href="/static/consent.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cookie Policy — Champagne.now</title>
 <meta name="description" content="Cookie Policy for Champagne.now. What cookies we use and why." />
@@ -39,8 +50,11 @@
 
   <div class="legal-body">
 
+    <h2>Nothing Before You Choose</h2>
+    <p>No consent-bearing tracker is set until you answer the banner. Audience measurement is declared refused by default (Consent Mode, <code>analytics_storage: denied</code>) and is enabled only after you click "Accept". The affiliate script loads at that same moment, and not before.</p>
+
     <h2>What Are Cookies</h2>
-    <p>Cookies are small text files stored on your device when you visit a website. Champagne.now uses a minimal approach to cookies — we collect only what is necessary to operate the Site and understand how it is used.</p>
+    <p>Cookies are small text files stored on your device when you visit a website. Champagne.now uses a minimal approach — only what is necessary to operate the Site and, with your agreement, to understand how it is used.</p>
 
     <h2>Cookies We Use</h2>
 
@@ -49,24 +63,30 @@
         <span>Name</span><span>Type</span><span>Purpose</span><span>Duration</span>
       </div>
       <div class="ct-row">
-        <span>cn_age</span><span>Local Storage</span><span>Remembers your age verification response so you are not asked again on return visits</span><span>Persistent</span>
+        <span>cn_consent</span><span>Local Storage</span><span>Records your tracker choice so you are not asked again on every page. Never leaves your browser; never sent to a server. Required to honour your choice, and therefore exempt from consent.</span><span>6 months</span>
       </div>
       <div class="ct-row">
-        <span>cn_cookies</span><span>Local Storage</span><span>Stores your cookie consent preference</span><span>Persistent</span>
+        <span>cn_age</span><span>Local Storage</span><span>Remembers your age verification response on the home page so you are not asked again</span><span>Persistent</span>
       </div>
       <div class="ct-row">
-        <span>_ga, _ga_*</span><span>Analytics</span><span>Google Analytics — anonymous traffic measurement. Helps us understand which content is most useful.</span><span>2 years</span>
+        <span>_ga, _ga_*</span><span>Analytics</span><span>Google Analytics 4 — traffic statistics. Set only after you accept.</span><span>2 years</span>
       </div>
       <div class="ct-row">
-        <span>Affiliate cookies</span><span>Third-party</span><span>Set by affiliate partners (TravelPayouts, Vivino, etc.) when you click a partner link, to track referrals for commission purposes</span><span>Varies by partner</span>
+        <span>Stay22</span><span>Affiliate</span><span>Attributes visits to partner sites when you follow an affiliate link. Loaded only after you accept.</span><span>Varies</span>
       </div>
     </div>
 
-    <h2>How to Control Cookies</h2>
-    <p>You can control and delete cookies through your browser settings. Note that disabling cookies may affect the functionality of some features. For Google Analytics specifically, you can opt out using <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google's browser add-on</a>.</p>
+    <h2>Changing Your Mind</h2>
+    <p>The <b>"Manage cookies"</b> link at the foot of every page reopens the banner. Refusing after having accepted switches audience measurement off immediately. After six months the choice expires and the question is asked again.</p>
+
+    <h2>Data Controllers</h2>
+    <p>Champagne.now for the Site; Google Ireland Limited for Google Analytics; Stay22 Inc. for affiliate links. No other third party receives data from these pages.</p>
+
+    <h2>What We Do Not Do</h2>
+    <p>No targeted advertising, no sale of data, no cross-site tracking. Google's advertising parameters stay refused in all circumstances, including after you accept.</p>
 
     <h2>Third-Party Cookies</h2>
-    <p>When you click affiliate links on our Site, third-party partners may set their own cookies. We do not control these cookies. Please refer to the privacy policies of the relevant partners for details.</p>
+    <p>If you follow an affiliate link, the partner site applies its own policy, over which we have no control. Refusing our banner does not break those links — they lead to the same place, simply without attribution.</p>
 
     <h2>Updates</h2>
     <p>We may update this Cookie Policy as our use of cookies changes. The "last updated" date reflects the most recent revision.</p>
@@ -97,13 +117,6 @@
   }, {passive:true});
 })();
 </script>
-<script>
-(function (s, t, a, y, twenty, two) {
-  s.Stay22 = s.Stay22 || {};
-  s.Stay22.params = { lmaID: '6a26f659df1132ff5008cb9d' };
-  twenty = t.createElement(a); two = t.getElementsByTagName(a)[0];
-  twenty.async = 1; twenty.src = y; two.parentNode.insertBefore(twenty, two);
-})(window, document, 'script', 'https://scripts.stay22.com/letmeallez.js');
-</script>
+<script defer src="/static/consent.js"></script>
 </body>
 </html>
