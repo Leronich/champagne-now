@@ -672,3 +672,33 @@
   font-size: 13px; letter-spacing: .28em; text-transform: uppercase;
   color: var(--cream-dim); margin-bottom: 20px;
 }
+
+/* ── FAQ ────────────────────────────────────────────────────────────────────
+   Вопросы видимы по умолчанию, без <details>. Свёрнутый ответ читатель
+   открывает реже, чем пролистывает, а поисковая выдача давно не даёт
+   FAQ-сниппетов обычным сайтам — прятать текст ради разметки смысла нет. */
+.art-faq { padding: 40px 0 8px; }
+.faq-item {
+  padding: 22px 0;
+  border-top: 1px solid var(--hairline);
+}
+.faq-item:last-child { border-bottom: 1px solid var(--hairline); }
+.faq-q {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 21px; line-height: 1.35; color: var(--cream);
+  margin: 0 0 10px;
+}
+.faq-a {
+  font-size: 16px; line-height: 1.75; color: var(--cream-dim);
+  margin: 0;
+}
+.faq-a + .faq-a { margin-top: 10px; }
+.faq-a a { color: var(--gold); border-bottom: 1px solid var(--hairline); }
+.faq-a a:hover { border-color: var(--gold); }
+
+@media (max-width: 640px) {
+  .art-faq { padding: 28px 0 4px; }
+  .faq-item { padding: 18px 0; }
+  .faq-q { font-size: 19px; }
+  .faq-a { font-size: 15px; }
+}
