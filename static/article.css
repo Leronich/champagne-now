@@ -702,3 +702,48 @@
   .faq-q { font-size: 19px; }
   .faq-a { font-size: 15px; }
 }
+
+/* ── ШАПКА С ИЛЛЮСТРАЦИЕЙ ───────────────────────────────────────────────────
+   Фон шапки для разделов, где словарь разрешает генерацию. Для houses и visit
+   он её запрещает («publish_without_image»): сгенерированный фасад реального
+   дома на странице этого дома — не оформление, а ложное утверждение о том,
+   как это место выглядит.
+
+   Изображение уходит под затемнение: шапка несёт заголовок и деку, и текст
+   обязан читаться поверх любого кадра. Отсюда двойной градиент — вертикальный
+   для нижней границы и горизонтальный со стороны текста. */
+.art-hero--illus::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 0;
+  background-image: var(--illus);
+  background-size: cover;
+  background-position: center 40%;
+  opacity: .5;
+}
+.art-hero--illus::after {
+  content: "";
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(90deg, var(--noir) 0%, rgba(10,8,7,.82) 42%, rgba(10,8,7,.35) 100%),
+    linear-gradient(to top, var(--noir) 0%, transparent 45%);
+}
+.art-hero--illus .art-hero-inner { z-index: 2; }
+
+/* Видимая пометка: читатель должен знать, что кадр нарисован, а не снят.
+   Требование словаря (ILLUSTRATION_LABEL), а не вкусовое решение. */
+.illus-mark {
+  position: absolute; right: 20px; bottom: 14px; z-index: 3;
+  font-family: 'EB Garamond', serif;
+  font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
+  color: var(--cream-dim); opacity: .65;
+}
+
+@media (max-width: 640px) {
+  .art-hero--illus::before { background-position: center 45%; opacity: .42; }
+  .art-hero--illus::after {
+    background:
+      linear-gradient(90deg, var(--noir) 0%, rgba(10,8,7,.72) 70%, rgba(10,8,7,.5) 100%),
+      linear-gradient(to top, var(--noir) 0%, transparent 55%);
+  }
+  .illus-mark { right: 14px; bottom: 10px; font-size: 10px; letter-spacing: .22em; }
+}
