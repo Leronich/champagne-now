@@ -23,6 +23,7 @@
   var CLE = "cn_consent";
   var DUREE = 182 * 24 * 60 * 60 * 1000;   // ~6 месяцев, ориентир CNIL
   var STAY22 = "6a26f659df1132ff5008cb9d";
+  var TRAVELPAYOUTS = "https://emrldco.com/NTYyNTI4.js?t=562528";
 
   var FR = document.documentElement.lang === "fr";
 
@@ -31,7 +32,7 @@
            "et <b>attribution des liens affiliés</b>. Aucun ne se déclenche " +
            "avant votre choix.",
     parties: "Responsables de traitement : Champagne.now, Google Ireland Ltd " +
-             "(Google Analytics), Stay22 Inc. (liens affiliés).",
+             "(Google Analytics), Stay22 Inc. et Travelpayouts (liens affiliés).",
     liens: [["/fr/legal/cookies/", "Politique cookies"],
             ["/fr/legal/confidentialite/", "Confidentialité"],
             ["/fr/legal/affiliation/", "Affiliation"]],
@@ -40,7 +41,7 @@
     texte: "We set trackers for two purposes: <b>audience measurement</b> and " +
            "<b>affiliate link attribution</b>. Neither runs before you choose.",
     parties: "Data controllers: Champagne.now, Google Ireland Ltd " +
-             "(Google Analytics), Stay22 Inc. (affiliate links).",
+             "(Google Analytics), Stay22 Inc. and Travelpayouts (affiliate links).",
     liens: [["/en/legal/cookies/", "Cookie Policy"],
             ["/en/legal/privacy/", "Privacy"],
             ["/en/legal/affiliate/", "Affiliate Disclosure"]],
@@ -87,7 +88,7 @@
         ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied"
       });
     }
-    if (accepte) chargerStay22();
+    if (accepte) { chargerStay22(); chargerTravelPayouts(); }
   }
 
   // Stay22 ставит свои cookies, поэтому грузится только после согласия.
@@ -103,6 +104,30 @@
     s.id = "cn-stay22";
     s.async = true;
     s.src = "https://scripts.stay22.com/letmeallez.js";
+    document.head.appendChild(s);
+  }
+
+  // Travelpayouts. Le fournisseur le distribue en <script> inline place dans
+  // <head>, avec un jeu d'attributs (nowprocket, data-noptimize, data-cfasync,
+  // data-no-defer) dont la fonction est d'empecher tout report de son
+  // execution. C'est incompatible avec un consentement prealable : un script
+  // concu pour ne pas etre differe s'execute avant que le lecteur ait choisi.
+  //
+  // Il ne se contente pas de compter. Il remplace window.open,
+  // Element.setAttribute, cloneNode et replaceChild, reecrit les liens
+  // affilies, prend un instantane du HTML — et redefinit
+  // Function.prototype.toString pour que ses propres correctifs se presentent
+  // comme du code natif. Raison de plus pour qu'il ne parte qu'apres un oui
+  // explicite, comme Stay22.
+  var tpCharge = false;
+  function chargerTravelPayouts() {
+    if (tpCharge || document.getElementById("cn-tp")) return;
+    tpCharge = true;
+    var s = document.createElement("script");
+    s.id = "cn-tp";
+    s.async = true;
+    s.setAttribute("data-cmp-ab", "2");
+    s.src = TRAVELPAYOUTS;
     document.head.appendChild(s);
   }
 

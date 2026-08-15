@@ -126,6 +126,8 @@ COOKIES = """
         <span>Google Analytics 4 — statistiques de fréquentation. Déposé uniquement après acceptation</span><span>2 ans</span></div>
       <div class="ct-row"><span>Stay22</span><span>Affiliation</span>
         <span>Attribution des liens vers des partenaires. Chargé uniquement après acceptation</span><span>Variable</span></div>
+      <div class="ct-row"><span>Travelpayouts</span><span>Affiliation</span>
+        <span>Réécriture et attribution des liens affiliés voyage. Chargé uniquement après acceptation</span><span>Variable</span></div>
     </div>
     <p><i>cn_consent</i> n'est pas un cookie mais une entrée de stockage local :
     il ne quitte jamais votre navigateur et n'est envoyé à aucun serveur. Il est
@@ -138,8 +140,12 @@ COOKIES = """
 
     <h2>Responsables de traitement</h2>
     <p>Champagne.now pour le site ; Google Ireland Limited pour Google
-    Analytics ; Stay22 Inc. pour les liens affiliés. Aucun autre tiers ne
-    reçoit de données depuis ces pages.</p>
+    Analytics ; Stay22 Inc. et Travelpayouts pour les liens affiliés. Aucun
+    autre tiers ne reçoit de données depuis ces pages.</p>
+    <p>Le script Travelpayouts est distribué par son fournisseur sous une forme
+    conçue pour s'exécuter avant tout le reste. Il est ici chargé depuis notre
+    propre code, après acceptation seulement : si vous refusez, il n'est pas
+    téléchargé du tout.</p>
 
     <h2>Ce que nous ne faisons pas</h2>
     <p>Pas de publicité ciblée, pas de revente de données, pas de suivi entre
@@ -163,9 +169,10 @@ CONFIDENTIALITE = """
     Sans acceptation, rien n'est mesuré.</p>
 
     <h2>Liens affiliés</h2>
-    <p>Certains liens mènent à des partenaires. S'ils sont activés, le script
-    Stay22 permet d'attribuer la visite. Le partenaire applique alors sa propre
-    politique, sur laquelle nous n'avons pas la main.</p>
+    <p>Certains liens mènent à des partenaires. S'ils sont activés, les scripts
+    Stay22 et Travelpayouts permettent d'attribuer la visite. Le partenaire
+    applique alors sa propre politique, sur laquelle nous n'avons pas la main.
+    Ces deux scripts ne sont chargés qu'après acceptation du bandeau.</p>
 
     <h2>Hébergement</h2>
     <p>Le site est hébergé sur Cloudflare Pages. L'hébergeur traite les journaux
