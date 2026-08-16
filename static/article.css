@@ -747,3 +747,35 @@
   }
   .illus-mark { right: 14px; bottom: 10px; font-size: 10px; letter-spacing: .22em; }
 }
+
+/* ── РЕДАКЦИОННАЯ СНОСКА ────────────────────────────────────────────────────
+   Отсылка к соседнему изданию портфеля. Оформлена тише, чем sommelier-aside:
+   это не совет к материалу, а указание, где продолжается тема за пределами
+   Шампани. Левая линия вместо рамки — блок не должен спорить с карточками
+   статей, между которыми стоит. */
+.art-aside {
+  margin: 44px 0 8px;
+  padding: 20px 0 20px 24px;
+  border-left: 2px solid var(--hairline);
+}
+.art-aside p {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--cream-dim);
+  margin: 0;
+}
+.art-aside a {
+  font-style: normal;
+  color: var(--gold);
+  border-bottom: 1px solid var(--hairline);
+  transition: border-color .3s;
+}
+.art-aside a:hover { border-color: var(--gold); }
+.art-aside--editorial { border-left-color: var(--gold); }
+
+@media (max-width: 640px) {
+  .art-aside { margin: 32px 0 4px; padding: 16px 0 16px 18px; }
+  .art-aside p { font-size: 15px; }
+}

@@ -89,6 +89,42 @@ def articles(langue, section):
     return out
 
 
+# ── Перекрёстная ссылка на соседнее издание портфеля ────────────────────────
+#
+# Ставится только там, где тема действительно продолжается: еда и вино, стили
+# вина, работа в погребе. На хабах про Шампань как место (terroir, houses,
+# visit, history) её нет — отсылка к бургундским аппелласьонам там была бы не
+# рекомендацией, а врезкой ради врезки.
+#
+# rel="noopener" без nofollow — сознательно: это редакционная рекомендация, а
+# не оплаченная ссылка. hreflang="fr" стоит потому, что mon-caviste.fr
+# франкоязычен, а блок висит на английских страницах: разметка обязана
+# сказать читателю и роботу, на каком языке будет то, куда он идёт.
+RENVOIS = {
+    "food-and-champagne": (
+        "For wine pairing beyond Champagne — Burgundy, Bordeaux, Loire — "
+        '<a href="https://mon-caviste.fr" target="_blank" rel="noopener" hreflang="fr">Mon Caviste</a> '
+        "covers the full spectrum of French appellations with the same editorial independence."),
+    "wine-styles": (
+        "Exploring French wines beyond the Champagne region? "
+        '<a href="https://mon-caviste.fr" target="_blank" rel="noopener" hreflang="fr">Mon Caviste</a> '
+        "is an independent editorial guide to French appellations, growers, and cellar vocabulary."),
+    "in-the-cellar": (
+        "The vocabulary of the cellar is not unique to Champagne. "
+        '<a href="https://mon-caviste.fr" target="_blank" rel="noopener" hreflang="fr">Mon Caviste</a> '
+        "follows the same techniques through the other French appellations, from vinification to bottle age."),
+}
+
+
+def renvoi(langue: str, section: str) -> str:
+    """Сноска ставится только на английских хабах перечисленных разделов."""
+    if langue != "en" or section not in RENVOIS:
+        return ""
+    return ('\n<div class="art-aside art-aside--editorial">\n'
+            f'  <p>{RENVOIS[section]}</p>\n'
+            "</div>\n")
+
+
 def page(langue, section, titre, deck, items, alt_url):
     est_fr = langue == "fr"
     banniere = "" if section in SANS_BANNIERE else f"banner-{section}.jpg"
@@ -195,7 +231,7 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
 {cartes}
     </div>
   </div>
-</section>
+{renvoi(langue, section)}</section>
 
 <section class="quiz-strip">
   <div class="quiz-strip-inner fade">
