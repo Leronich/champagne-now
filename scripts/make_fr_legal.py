@@ -65,6 +65,8 @@ def page(slug, en_slug, titre, description, corps):
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
+<link rel="icon" type="image/jpeg" href="/static/favicon.jpg">
+<link rel="apple-touch-icon" href="/static/favicon.jpg">
 {CONSENT_HEAD}
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{titre} — Champagne.now</title>

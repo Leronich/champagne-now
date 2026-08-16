@@ -162,6 +162,8 @@ def page(langue, section, titre, deck, items, alt_url):
 <html lang="{langue}">
 <head>
 <meta charset="utf-8" />
+<link rel="icon" type="image/jpeg" href="/static/favicon.jpg">
+<link rel="apple-touch-icon" href="/static/favicon.jpg">
 <meta name='impact-site-verification' value='d9700790-fcb7-412a-8cb2-ae6a55ebdea5'>
 <!-- cn-consent-default-v2: отказ по умолчанию, до любого трекера -->
 <script>
@@ -338,6 +340,8 @@ def journal(langue: str) -> str:
 <html lang="{langue}">
 <head>
 <meta charset="utf-8" />
+<link rel="icon" type="image/jpeg" href="/static/favicon.jpg">
+<link rel="apple-touch-icon" href="/static/favicon.jpg">
 <meta name='impact-site-verification' value='d9700790-fcb7-412a-8cb2-ae6a55ebdea5'>
 <!-- cn-consent-default-v2: отказ по умолчанию, до любого трекера -->
 <script>
