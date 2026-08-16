@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Champagne.now">
+  <title>Champagne.now</title>
+  <!--
+    Нарисован, а не обведён с фотографии: в исходном JPEG бокал занимает
+    193 пикселя ширины при 703 высоты, и на 16px это вертикальная чёрточка.
+    Здесь чаша шире, штрих толще, деталей меньше — иконка должна читаться
+    в размере вкладки, а не быть точной копией.
+
+    Манера — та же, что у иллюстраций карточек регионов на сайте: тонкая
+    линия, без заливок.
+
+    Цвет через prefers-color-scheme: золото сайта на тёмной панели браузера
+    и притемнённое золото на светлой, где светлое просто исчезло бы.
+  -->
+  <style>
+    :root { --trait: #c9a84c; }
+    @media (prefers-color-scheme: light) { :root { --trait: #8a6a1f; } }
+  </style>
+  <g fill="none" stroke="var(--trait)" stroke-width="1.7"
+     stroke-linecap="round" stroke-linejoin="round">
+    <!-- чаша -->
+    <path d="M10.5 3.5 h11 l-1.6 9.2a3.9 3.9 0 0 1-7.8 0z" />
+    <!-- вино -->
+    <path d="M11.8 8.2 h8.4" stroke-width="1.2" opacity=".75" />
+    <!-- ножка -->
+    <path d="M16 16.6 v8.4" />
+    <!-- основание -->
+    <path d="M11.6 27.2 h8.8" />
+    <path d="M16 25 c-1.6 0-3.4.9-4.4 2.2" stroke-width="1.2" opacity=".85" />
+    <path d="M16 25 c1.6 0 3.4.9 4.4 2.2" stroke-width="1.2" opacity=".85" />
+  </g>
+  <!-- пузырьки: три точки, крупнее чем в оригинале, иначе пропадают -->
+  <g fill="var(--trait)">
+    <circle cx="14.6" cy="10.4" r="1" />
+    <circle cx="17.6" cy="11.6" r=".85" />
+    <circle cx="16.2" cy="6.4" r=".7" opacity=".8" />
+  </g>
+</svg>
