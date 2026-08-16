@@ -779,3 +779,41 @@
   .art-aside { margin: 32px 0 4px; padding: 16px 0 16px 18px; }
   .art-aside p { font-size: 15px; }
 }
+
+/* ── ПАРТНЁРСКИЙ БЛОК ───────────────────────────────────────────────────────
+   Отдельно от .affiliate-stay: тот про ночлег и стоит в потоке текста, этот
+   завершает статью списком бутылок. Рамка, а не левая линия — блок должен
+   читаться как отбивка после материала, а не как продолжение мысли.
+
+   Класса .cb-text здесь нет намеренно: он определён внутри index.html для
+   баннера cookies и на страницах статей не действует. */
+.aff-block {
+  border: 1px solid var(--hairline);
+  background: var(--noir-2);
+  padding: 28px 32px;
+  margin: 56px 0 8px;
+}
+.aff-block p {
+  font-family: 'EB Garamond', serif;
+  font-size: 16px; line-height: 1.7;
+  color: var(--cream-dim);
+  margin: 0 0 20px;
+}
+.aff-links {
+  display: flex; flex-direction: column; gap: 14px;
+  align-items: flex-start;
+}
+.aff-disclosure {
+  display: block; margin-top: 20px;
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: 13px; color: var(--cream-dim); opacity: .75;
+}
+.aff-disclosure a { color: var(--cream-dim); border-bottom: 1px solid var(--hairline); }
+.aff-disclosure a:hover { color: var(--gold); }
+
+@media (max-width: 640px) {
+  .aff-block { padding: 22px 18px; margin: 40px 0 4px; }
+  .aff-block p { font-size: 15px; }
+  .aff-links { gap: 16px; }
+  .aff-link { font-size: 14px; letter-spacing: .18em; }
+}
