@@ -22,16 +22,28 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/editorial/"/>
   </url>
   <url>
+    <loc>https://champagne.now/en/food-and-champagne/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/"/>
+  </url>
+  <url>
     <loc>https://champagne.now/en/food-and-champagne/champagne-breakfast/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-breakfast/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-brunch-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/food-and-champagne/champagne-cheese/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-cheese/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-fromage-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/food-and-champagne/champagne-dessert/</loc>
@@ -46,12 +58,16 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-fried-chicken/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-poulet-frit-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/food-and-champagne/champagne-oysters/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-oysters/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-huitres-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/food-and-champagne/champagne-sushi/</loc>
@@ -62,28 +78,44 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-sushi-fr/"/>
   </url>
   <url>
+    <loc>https://champagne.now/en/history/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/"/>
+  </url>
+  <url>
     <loc>https://champagne.now/en/history/champagne-appellation/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/champagne-appellation/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/appellation-champagne-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/history/champagne-wwii/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/champagne-wwii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/champagne-guerre-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/history/dom-perignon-history/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/dom-perignon-history/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/dom-perignon-histoire-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/history/growers-vs-houses/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/growers-vs-houses/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/recoltants-maisons-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/history/methode-champenoise/</loc>
@@ -98,6 +130,16 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/veuve-clicquot-history/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/veuve-clicquot-histoire-fr/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/en/houses/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/houses/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/houses/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/houses/billecart-salmon/</loc>
@@ -180,6 +222,14 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/houses/veuve-clicquot-fr/"/>
   </url>
   <url>
+    <loc>https://champagne.now/en/in-the-cellar/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/in-the-cellar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/in-the-cellar/"/>
+  </url>
+  <url>
     <loc>https://champagne.now/en/in-the-cellar/chardonnay-champagne/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -208,30 +258,48 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/in-the-cellar/second-fermentation/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/in-the-cellar/deuxieme-fermentation-fr/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/en/journal/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/journal/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/journal/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/legal/affiliate/</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/legal/affiliate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/legal/affiliation/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/legal/cookies/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/legal/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/legal/cookies/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/legal/privacy/</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/legal/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/legal/confidentialite/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/legal/terms/</loc>
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/legal/terms/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/legal/conditions/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/quiz/</loc>
@@ -240,10 +308,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://champagne.now/en/terroir/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/terroir/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/terroir/"/>
+  </url>
+  <url>
     <loc>https://champagne.now/en/terroir/aube-les-riceys/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/terroir/aube-les-riceys/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/terroir/aube-champagne-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/terroir/ay-village/</loc>
@@ -274,12 +352,16 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/terroir/grand-cru-villages/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/terroir/grands-crus-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/terroir/le-mesnil-sur-oger/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/terroir/le-mesnil-sur-oger/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/terroir/mesnil-sur-oger-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/terroir/montagne-de-reims/</loc>
@@ -298,16 +380,28 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/terroir/vallee-de-la-marne-fr/"/>
   </url>
   <url>
+    <loc>https://champagne.now/en/visit/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/"/>
+  </url>
+  <url>
     <loc>https://champagne.now/en/visit/champagne-stay/</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/champagne-stay/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/hebergement-champagne-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/visit/day-trip-paris/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/day-trip-paris/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/excursion-paris-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/visit/epernay-guide/</loc>
@@ -322,12 +416,16 @@
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/harvest-season/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/vendange-champagne-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/visit/moet-cave-tour/</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/moet-cave-tour/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/visite-moet-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/visit/reims-guide/</loc>
@@ -350,6 +448,16 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/veuve-clicquot-tour/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/visite-veuve-clicquot-fr/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/en/wine-styles/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/wine-styles/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/wine-styles/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/wine-styles/blanc-de-blancs/</loc>
@@ -380,12 +488,16 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/wine-styles/demi-sec-champagne/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/wine-styles/demi-sec-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/wine-styles/extra-brut-zero-dosage/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/wine-styles/extra-brut-zero-dosage/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/wine-styles/extra-brut-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/wine-styles/prestige-cuvee/</loc>
@@ -412,6 +524,14 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/wine-styles/vintage-champagne-fr/"/>
   </url>
   <url>
+    <loc>https://champagne.now/fr/contact/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/contact/"/>
+  </url>
+  <url>
     <loc>https://champagne.now/fr/editorial/</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -420,10 +540,20 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/editorial/"/>
   </url>
   <url>
+    <loc>https://champagne.now/fr/food-and-champagne/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/"/>
+  </url>
+  <url>
     <loc>https://champagne.now/fr/food-and-champagne/champagne-brunch-fr/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-breakfast/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-brunch-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/food-and-champagne/champagne-dessert-fr/</loc>
@@ -438,6 +568,8 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-cheese/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-fromage-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/food-and-champagne/champagne-huitres-fr/</loc>
@@ -452,6 +584,8 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-fried-chicken/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-poulet-frit-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/food-and-champagne/champagne-sushi-fr/</loc>
@@ -460,6 +594,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-sushi/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-sushi-fr/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/fr/history/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/history/appellation-champagne-fr/</loc>
@@ -474,12 +616,16 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/champagne-wwii/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/champagne-guerre-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/history/dom-perignon-histoire-fr/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/dom-perignon-history/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/dom-perignon-histoire-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/history/methode-champenoise-fr/</loc>
@@ -494,12 +640,24 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/growers-vs-houses/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/recoltants-maisons-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/history/veuve-clicquot-histoire-fr/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/veuve-clicquot-history/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/veuve-clicquot-histoire-fr/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/fr/houses/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/houses/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/houses/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/houses/billecart-salmon-fr/</loc>
@@ -582,6 +740,14 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/houses/veuve-clicquot-fr/"/>
   </url>
   <url>
+    <loc>https://champagne.now/fr/in-the-cellar/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/in-the-cellar/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/in-the-cellar/"/>
+  </url>
+  <url>
     <loc>https://champagne.now/fr/in-the-cellar/chardonnay-champagne-fr/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -602,6 +768,8 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/in-the-cellar/second-fermentation/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/in-the-cellar/deuxieme-fermentation-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/in-the-cellar/pinot-noir-champagne-fr/</loc>
@@ -610,6 +778,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/in-the-cellar/pinot-noir-champagne/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/in-the-cellar/pinot-noir-champagne-fr/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/fr/journal/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/journal/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/journal/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/legal/affiliation/</loc>
@@ -644,10 +820,20 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/legal/cookies/"/>
   </url>
   <url>
+    <loc>https://champagne.now/fr/terroir/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/terroir/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/terroir/"/>
+  </url>
+  <url>
     <loc>https://champagne.now/fr/terroir/aube-champagne-fr/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/terroir/aube-les-riceys/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/terroir/aube-champagne-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/terroir/ay-village-fr/</loc>
@@ -678,12 +864,16 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/terroir/grand-cru-villages/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/terroir/grands-crus-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/terroir/mesnil-sur-oger-fr/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/terroir/le-mesnil-sur-oger/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/terroir/mesnil-sur-oger-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/terroir/montagne-de-reims-fr/</loc>
@@ -702,6 +892,14 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/terroir/vallee-de-la-marne-fr/"/>
   </url>
   <url>
+    <loc>https://champagne.now/fr/visit/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/"/>
+  </url>
+  <url>
     <loc>https://champagne.now/fr/visit/epernay-guide-fr/</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -714,12 +912,16 @@
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/day-trip-paris/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/excursion-paris-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/visit/hebergement-champagne-fr/</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/champagne-stay/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/hebergement-champagne-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/visit/reims-guide-fr/</loc>
@@ -742,18 +944,32 @@
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/harvest-season/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/vendange-champagne-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/visit/visite-moet-fr/</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/moet-cave-tour/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/visite-moet-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/visit/visite-veuve-clicquot-fr/</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/veuve-clicquot-tour/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/visite-veuve-clicquot-fr/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/fr/wine-styles/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/wine-styles/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/wine-styles/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/wine-styles/blanc-de-blancs-fr/</loc>
@@ -784,12 +1000,16 @@
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/wine-styles/demi-sec-champagne/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/wine-styles/demi-sec-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/wine-styles/extra-brut-fr/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/wine-styles/extra-brut-zero-dosage/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/wine-styles/extra-brut-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/wine-styles/prestige-cuvee-fr/</loc>

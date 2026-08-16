@@ -11,6 +11,10 @@
     "hash": "cdb76b23ac04b730",
     "lastmod": "2026-08-04"
   },
+  "https://champagne.now/en/food-and-champagne/": {
+    "hash": "a02dfc485f946f09",
+    "lastmod": "2026-08-16"
+  },
   "https://champagne.now/en/food-and-champagne/champagne-breakfast/": {
     "hash": "ed04364b3c879c2f",
     "lastmod": "2026-08-15"
@@ -35,6 +39,10 @@
     "hash": "0c162fcaa292b346",
     "lastmod": "2026-08-15"
   },
+  "https://champagne.now/en/history/": {
+    "hash": "82685a73b01828d7",
+    "lastmod": "2026-08-16"
+  },
   "https://champagne.now/en/history/champagne-appellation/": {
     "hash": "603b3717ee0025ab",
     "lastmod": "2026-08-15"
@@ -58,6 +66,10 @@
   "https://champagne.now/en/history/veuve-clicquot-history/": {
     "hash": "007a6db78add6890",
     "lastmod": "2026-08-15"
+  },
+  "https://champagne.now/en/houses/": {
+    "hash": "a15c6570a9595c8b",
+    "lastmod": "2026-08-16"
   },
   "https://champagne.now/en/houses/billecart-salmon/": {
     "hash": "93acd5409446b431",
@@ -99,6 +111,10 @@
     "hash": "1aea609178c73e56",
     "lastmod": "2026-08-15"
   },
+  "https://champagne.now/en/in-the-cellar/": {
+    "hash": "6856c3cb678c6fd0",
+    "lastmod": "2026-08-16"
+  },
   "https://champagne.now/en/in-the-cellar/chardonnay-champagne/": {
     "hash": "182755d7de42dcf2",
     "lastmod": "2026-08-15"
@@ -114,6 +130,10 @@
   "https://champagne.now/en/in-the-cellar/second-fermentation/": {
     "hash": "d823a4f08af9c7a6",
     "lastmod": "2026-08-15"
+  },
+  "https://champagne.now/en/journal/": {
+    "hash": "0d61ab6007a1a5d0",
+    "lastmod": "2026-08-16"
   },
   "https://champagne.now/en/legal/affiliate/": {
     "hash": "8b9ef69c4f41bfcf",
@@ -134,6 +154,10 @@
   "https://champagne.now/en/quiz/": {
     "hash": "c95ee65125671446",
     "lastmod": "2026-06-07"
+  },
+  "https://champagne.now/en/terroir/": {
+    "hash": "4733a0757285604c",
+    "lastmod": "2026-08-16"
   },
   "https://champagne.now/en/terroir/aube-les-riceys/": {
     "hash": "1e3e9f8e6fbbb45a",
@@ -167,6 +191,10 @@
     "hash": "d593ec631e7fb53b",
     "lastmod": "2026-08-15"
   },
+  "https://champagne.now/en/visit/": {
+    "hash": "90b2035bbd57e61e",
+    "lastmod": "2026-08-16"
+  },
   "https://champagne.now/en/visit/champagne-stay/": {
     "hash": "f37196741a7effe2",
     "lastmod": "2026-08-04"
@@ -198,6 +226,10 @@
   "https://champagne.now/en/visit/veuve-clicquot-tour/": {
     "hash": "432a552969c50c23",
     "lastmod": "2026-08-15"
+  },
+  "https://champagne.now/en/wine-styles/": {
+    "hash": "a5b2df118f41f935",
+    "lastmod": "2026-08-16"
   },
   "https://champagne.now/en/wine-styles/blanc-de-blancs/": {
     "hash": "14bc266a0b339b40",
@@ -231,9 +263,17 @@
     "hash": "e12f0581541ecc72",
     "lastmod": "2026-08-15"
   },
+  "https://champagne.now/fr/contact/": {
+    "hash": "b9ac8618525adbb4",
+    "lastmod": "2026-08-16"
+  },
   "https://champagne.now/fr/editorial/": {
     "hash": "8160e662edac940d",
     "lastmod": "2026-08-04"
+  },
+  "https://champagne.now/fr/food-and-champagne/": {
+    "hash": "075790808208b6bc",
+    "lastmod": "2026-08-16"
   },
   "https://champagne.now/fr/food-and-champagne/champagne-brunch-fr/": {
     "hash": "8bff282ea3b56a48",
@@ -259,6 +299,10 @@
     "hash": "223815281717f905",
     "lastmod": "2026-08-15"
   },
+  "https://champagne.now/fr/history/": {
+    "hash": "9521d76cc198a16c",
+    "lastmod": "2026-08-16"
+  },
   "https://champagne.now/fr/history/appellation-champagne-fr/": {
     "hash": "12eb225f26a32fb7",
     "lastmod": "2026-08-15"
@@ -282,6 +326,10 @@
   "https://champagne.now/fr/history/veuve-clicquot-histoire-fr/": {
     "hash": "afb0bc008d09159e",
     "lastmod": "2026-08-15"
+  },
+  "https://champagne.now/fr/houses/": {
+    "hash": "5b2ab5171b0a6782",
+    "lastmod": "2026-08-16"
   },
   "https://champagne.now/fr/houses/billecart-salmon-fr/": {
     "hash": "cbbe402b5dee7be0",
@@ -323,6 +371,10 @@
     "hash": "f1a050ba09365cfe",
     "lastmod": "2026-08-04"
   },
+  "https://champagne.now/fr/in-the-cellar/": {
+    "hash": "47f42b796ad9fb08",
+    "lastmod": "2026-08-16"
+  },
   "https://champagne.now/fr/in-the-cellar/chardonnay-champagne-fr/": {
     "hash": "0f49d70dd89df270",
     "lastmod": "2026-08-15"
@@ -339,6 +391,10 @@
     "hash": "ddb8408973133de8",
     "lastmod": "2026-08-15"
   },
+  "https://champagne.now/fr/journal/": {
+    "hash": "70cb1162aa880d73",
+    "lastmod": "2026-08-16"
+  },
   "https://champagne.now/fr/legal/affiliation/": {
     "hash": "eafc4315aee0d28e",
     "lastmod": "2026-08-15"
@@ -354,6 +410,10 @@
   "https://champagne.now/fr/legal/cookies/": {
     "hash": "34fe7c9e359a82ae",
     "lastmod": "2026-08-15"
+  },
+  "https://champagne.now/fr/terroir/": {
+    "hash": "e9cd265156eb2667",
+    "lastmod": "2026-08-16"
   },
   "https://champagne.now/fr/terroir/aube-champagne-fr/": {
     "hash": "d959a87df02791f4",
@@ -387,6 +447,10 @@
     "hash": "119228bba668e4ba",
     "lastmod": "2026-08-15"
   },
+  "https://champagne.now/fr/visit/": {
+    "hash": "d60911b90ec8b018",
+    "lastmod": "2026-08-16"
+  },
   "https://champagne.now/fr/visit/epernay-guide-fr/": {
     "hash": "39b1404029636243",
     "lastmod": "2026-08-04"
@@ -418,6 +482,10 @@
   "https://champagne.now/fr/visit/visite-veuve-clicquot-fr/": {
     "hash": "04200fe8af388ca2",
     "lastmod": "2026-08-04"
+  },
+  "https://champagne.now/fr/wine-styles/": {
+    "hash": "836fe759f85ec2d4",
+    "lastmod": "2026-08-16"
   },
   "https://champagne.now/fr/wine-styles/blanc-de-blancs-fr/": {
     "hash": "2024722f9d277141",

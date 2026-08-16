@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, follow" />
+<title>Page not found — Champagne.now</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/static/styles.css" />
+<link rel="stylesheet" href="/static/article.css" />
+<style>
+  .nf-wrap {
+    min-height: 78vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 140px 24px 80px;
+  }
+  .nf-code {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px; letter-spacing: .42em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 26px;
+  }
+  .nf-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(38px, 6vw, 76px); line-height: 1; color: var(--cream);
+    margin-bottom: 24px;
+  }
+  .nf-deck {
+    font-family: 'EB Garamond', serif; font-style: italic;
+    font-size: 18px; line-height: 1.7; color: var(--cream-dim);
+    max-width: 520px; margin-bottom: 40px;
+  }
+  .nf-links { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  @media (max-width: 640px) {
+    .nf-wrap { padding: 110px 18px 60px; }
+    .nf-deck { font-size: 16px; }
+    .nf-links { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <div class="nav-links">
+    <a href="/en/terroir/">The Region</a>
+    <a href="/en/wine-styles/">The Wine</a>
+    <a href="/en/journal/">Journal</a>
+    <a href="/#quiz">Quiz</a>
+  </div>
+  <div class="wordmark"><a href="/">Champagne<span class="dot"></span>now</a></div>
+  <div class="nav-right">
+    <div class="lang"><b>EN</b> · <a href="/fr/journal/">FR</a></div>
+    <a href="/#quiz" class="res">Find Your Moment</a>
+  </div>
+</nav>
+
+<div class="nf-wrap">
+  <div class="nf-code">404 · Page introuvable</div>
+  <h1 class="nf-title">Nothing in this cellar.</h1>
+  <p class="nf-deck">
+    The page you asked for does not exist. It may have been renamed, or the
+    link that brought you here may be older than the page it points to.
+  </p>
+  <div class="nf-links">
+    <a href="/en/journal/" class="btn btn--filled">All articles <span class="arrow"></span></a>
+    <a href="/" class="btn btn--ghost">Home <span class="arrow"></span></a>
+  </div>
+</div>
+
+<footer class="foot">
+  <div>© MMXXV Champagne.now · <i>Maison Indépendante</i></div>
+  <div class="center">Champagne · Now</div>
+  <div class="right">Drink slowly · <i>Boire avec lenteur</i></div>
+</footer>
+<script defer src="/static/consent.js"></script>
+</body>
+</html>
