@@ -79,7 +79,7 @@
   </url>
   <url>
     <loc>https://champagne.now/en/history/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/"/>
@@ -87,15 +87,21 @@
   </url>
   <url>
     <loc>https://champagne.now/en/history/champagne-appellation/</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/champagne-appellation/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/history/appellation-champagne-fr/"/>
   </url>
   <url>
+    <loc>https://champagne.now/en/history/champagne-prohibition-america/</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://champagne.now/en/history/champagne-wwii/</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/champagne-wwii/"/>
@@ -127,7 +133,7 @@
   </url>
   <url>
     <loc>https://champagne.now/en/history/veuve-clicquot-history/</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/history/veuve-clicquot-history/"/>
@@ -263,7 +269,7 @@
   </url>
   <url>
     <loc>https://champagne.now/en/journal/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/journal/"/>
