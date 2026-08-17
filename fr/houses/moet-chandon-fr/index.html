@@ -16,6 +16,7 @@ if(c&&c.exp>Date.now()&&c.analytics===true){gtag('consent','update',{'analytics_
 gtag('js',new Date());gtag('config','G-J8273H5YMH');
 </script>
 <link rel="stylesheet" href="/static/consent.css" />
+<link rel="stylesheet" href="/static/nav.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Moët &amp; Chandon : L&#39;Empire du Champagne depuis 1743</title>
 <meta name="description" content="Découvrez Moët &amp; Chandon, la plus grande maison de champagne au monde. Histoire, philosophie et dégustation de l&#39;Impérial, Dom Pérignon et Grand Vintage." />
@@ -83,6 +84,7 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
     
     <a href="/#quiz" class="res">Trouver Votre Moment</a>
   </div>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-controls="navOverlay" aria-expanded="false">&#9776;</button>
 </nav>
 
 <!-- BREADCRUMB -->
@@ -312,6 +314,22 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
   document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 })();
 </script>
+<script defer src="/static/nav.js"></script>
 <script defer src="/static/consent.js"></script>
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" type="button" aria-label="Fermer">&#10005;</button>
+  <nav class="nav-overlay-links" aria-label="Menu">
+    <a href="/fr/terroir/">La Région</a>
+    <a href="/fr/wine-styles/">Le Vin</a>
+    <a href="/fr/history/">Histoire</a>
+    <a href="/fr/houses/">Maisons</a>
+    <a href="/fr/visit/">Visiter</a>
+    <a href="/fr/in-the-cellar/">En Cave</a>
+    <a href="/fr/food-and-champagne/">Accords</a>
+    <a href="/fr/journal/">Journal</a>
+    <a href="/en/quiz/">Quiz</a>
+    <div class="nav-overlay-lang"><a href="/en/houses/moet-chandon/">EN</a> · <b>FR</b></div>
+  </nav>
+</div>
 </body>
 </html>

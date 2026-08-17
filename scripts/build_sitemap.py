@@ -57,13 +57,30 @@ RE_NOINDEX = re.compile(r'<meta[^>]+name="robots"[^>]+noindex', re.I)
 RE_HREFLANG = re.compile(r'<link rel="alternate" hreflang="([a-z]{2})" href="([^"]+)"')
 
 
-def empreinte(html: str) -> str:
-    """Хеш ВИДИМОГО текста, а не файла.
+# Обвязка страницы: одинакова на всех и меняется разом на всех. Меню, подвал,
+# хлебные крошки, баннер согласия.
+# Оверлей идёт первым: внутри него лежит свой <nav>, и если сначала сработает
+# альтернатива «<nav>…</nav>», от оверлея останется обёртка с крестиком &#10005;
+# — один символ, из-за которого 115 страниц объявили бы себя изменившимися.
+RE_CHROME = re.compile(
+    r'(?is)<div class="nav-overlay".*?</nav>\s*</div>'
+    r"|<nav\b.*?</nav>"
+    r"|<footer\b.*?</footer>"
+    r'|<div class="breadcrumb-bar".*?</div>\s*</div>')
 
-    Разметка, схема и подключения скриптов сюда не входят намеренно: читателю
-    они не видны, и их изменение не повод просить переобход.
+
+def empreinte(html: str) -> str:
+    """Хеш ВИДИМОГО текста СТАТЬИ, а не файла и не всей страницы.
+
+    Разметка, схема и подключения скриптов не входят намеренно: читателю они не
+    видны. Обвязка исключается по другой причине — она общая. 18.08.2026
+    добавление гамбургер-меню изменило видимый текст всех 132 страниц разом, и
+    sitemap объявил бы 131 изменение из-за одной кнопки. Это ровно то «всё
+    изменилось сегодня», ради предотвращения которого файл и переписан:
+    lastmod должен двигаться, когда изменилась СТАТЬЯ.
     """
-    texte = re.sub(r"\s+", " ", html_text(html)).strip()
+    corps = RE_CHROME.sub(" ", html)
+    texte = re.sub(r"\s+", " ", html_text(corps)).strip()
     return hashlib.sha256(texte.encode("utf-8")).hexdigest()[:16]
 
 
@@ -163,7 +180,11 @@ def alternates(infos: dict) -> dict:
     return sortie
 
 
-def construire(aujourd_hui: str, seed: bool) -> tuple:
+def construire(aujourd_hui: str, seed: bool, garder_dates: bool = False) -> tuple:
+    """garder_dates — режим пересчёта хешей после правки самой функции
+    empreinte(). Смена способа считать хеш не есть изменение страниц: без
+    этого первая же пересборка объявила бы изменившимся весь сайт, то есть
+    соврала бы ровно так, как этот файл призван не врать."""
     etat = charger_etat()
     infos, nouveau = {}, {}
 
@@ -182,7 +203,7 @@ def construire(aujourd_hui: str, seed: bool) -> tuple:
         url, h = info["url"], info["hash"]
         precedent = etat.get(url)
 
-        if precedent and precedent.get("hash") == h:
+        if precedent and (garder_dates or precedent.get("hash") == h):
             lastmod = precedent["lastmod"]
             inchange += 1
         elif precedent:
@@ -218,9 +239,13 @@ def main() -> int:
     parser.add_argument("--seed-from-git", action="store_true",
                         help="первый прогон: lastmod берётся из истории, а не «сегодня»")
     parser.add_argument("--date", default=date.today().isoformat())
+    parser.add_argument("--rehash", action="store_true",
+                        help="пересчитать хеши, НЕ трогая lastmod — после правки "
+                             "самой функции хеширования")
     args = parser.parse_args()
 
-    xml, etat, change, ajoutes, inchange = construire(args.date, args.seed_from_git)
+    xml, etat, change, ajoutes, inchange = construire(
+        args.date, args.seed_from_git, garder_dates=args.rehash)
 
     print(f"URL: {len(etat)} | без изменений: {inchange} | "
           f"изменилось: {len(change)} | впервые: {len(ajoutes)}")

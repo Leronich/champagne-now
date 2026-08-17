@@ -39,6 +39,7 @@ NAV = """<nav class="nav scrolled" id="nav">
     <div class="lang">EN · <b>FR</b></div>
     <a href="/#quiz" class="res">Trouvez votre moment</a>
   </div>
+    <button class="nav-burger" type="button" aria-label="Menu" aria-controls="navOverlay" aria-expanded="false">&#9776;</button>
 </nav>"""
 
 PIED = """<footer class="foot">
@@ -57,7 +58,8 @@ if(c&&c.exp>Date.now()&&c.analytics===true){gtag('consent','update',{'analytics_
 }catch(e){}
 gtag('js',new Date());gtag('config','G-J8273H5YMH');
 </script>
-<link rel="stylesheet" href="/static/consent.css" />"""
+<link rel="stylesheet" href="/static/consent.css" />
+<link rel="stylesheet" href="/static/nav.css" />"""
 
 
 def page(slug, en_slug, titre, description, corps):
@@ -106,6 +108,22 @@ def page(slug, en_slug, titre, description, corps):
 </div>
 
 {PIED}
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" type="button" aria-label="Fermer">&#10005;</button>
+  <nav class="nav-overlay-links" aria-label="Menu">
+    <a href="/fr/terroir/">La Région</a>
+    <a href="/fr/wine-styles/">Le Vin</a>
+    <a href="/fr/history/">Histoire</a>
+    <a href="/fr/houses/">Maisons</a>
+    <a href="/fr/visit/">Visiter</a>
+    <a href="/fr/in-the-cellar/">En Cave</a>
+    <a href="/fr/food-and-champagne/">Accords</a>
+    <a href="/fr/journal/">Journal</a>
+    <a href="/en/quiz/">Quiz</a>
+    <div class="nav-overlay-lang">EN · <b>FR</b></div>
+  </nav>
+</div>
+<script defer src="/static/nav.js"></script>
 <script defer src="/static/consent.js"></script>
 </body>
 </html>

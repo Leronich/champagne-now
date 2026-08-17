@@ -17,6 +17,7 @@ if(c&&c.exp>Date.now()&&c.analytics===true){gtag('consent','update',{'analytics_
 gtag('js',new Date());gtag('config','G-J8273H5YMH');
 </script>
 <link rel="stylesheet" href="/static/consent.css" />
+<link rel="stylesheet" href="/static/nav.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="canonical" href="https://champagne.now/" />
 <title>Champagne.now — Right Now</title>
@@ -43,6 +44,7 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
     <div class="lang"><b>EN</b> · FR</div>
     <a href="/en/quiz/" class="res">Reserve a Moment</a>
   </div>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-controls="navOverlay" aria-expanded="false">&#9776;</button>
 </nav>
 
 <!-- ─────────────── HERO ─────────────── -->
@@ -516,38 +518,7 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
 }
 .ag-links a:hover {color:var(--gold);opacity:1}
 
-/* COOKIE BANNER */
-#cookie-banner {
-  position:fixed;bottom:0;left:0;right:0;z-index:8888;
-  background:rgba(10,8,7,.95);
-  border-top:1px solid var(--hairline);
-  backdrop-filter:blur(10px);
-  padding:20px 40px;
-}
-.cb-inner {
-  max-width:1200px;margin:0 auto;
-  display:flex;align-items:center;gap:32px;flex-wrap:wrap;
-}
-.cb-text {
-  flex:1;font-family:'EB Garamond',serif;font-style:italic;
-  font-size: 15px;line-height:1.65;color:var(--cream-dim);
-}
-.cb-text a {color:var(--gold);border-bottom:1px solid var(--hairline)}
-.cb-text a:hover {border-color:var(--gold)}
-.cb-btns {display:flex;gap:12px}
-.cb-accept,.cb-decline {
-  font-family:'EB Garamond',serif;
-  font-size: 13px;letter-spacing:.32em;text-transform:uppercase;
-  padding:10px 22px;border:1px solid var(--gold);
-  cursor:pointer;transition:all .3s;
-}
-.cb-accept {background:var(--gold);color:var(--noir)}
-.cb-accept:hover {background:transparent;color:var(--gold)}
-.cb-decline {background:transparent;color:var(--cream-dim)}
-.cb-decline:hover {color:var(--gold)}
 @media(max-width:640px){
-  #cookie-banner{padding:16px}
-  .cb-inner{flex-direction:column;align-items:stretch;gap:12px}
   .cb-text{width:100%;text-align:center}
   .cb-btns{display:flex;gap:8px;justify-content:center}
   .ag-box{padding:48px 24px 36px}
@@ -579,20 +550,29 @@ function agDecline(){
   window.location.href = 'https://www.google.com';
 }
 
-function showCookieBanner(){
-  if(localStorage.getItem('cn_cookies')) return;
-  document.getElementById('cookie-banner').style.display = 'block';
-}
-
-catch(e){}
-  document.getElementById('cookie-banner').style.display = 'none';
-}
-
-catch(e){}
-  document.getElementById('cookie-banner').style.display = 'none';
-}
+// Старый баннер cookies убран 14.08.2026: согласие собирает consent.js, и
+// элемента #cookie-banner на странице больше нет. Вызовы showCookieBanner()
+// выше оставлены пустой заглушкой, чтобы возрастной гейт не падал на
+// несуществующей функции.
+function showCookieBanner(){}
 </script>
 
+<script defer src="/static/nav.js"></script>
 <script defer src="/static/consent.js"></script>
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" type="button" aria-label="Close">&#10005;</button>
+  <nav class="nav-overlay-links" aria-label="Menu">
+    <a href="/en/terroir/">The Region</a>
+    <a href="/en/wine-styles/">The Wine</a>
+    <a href="/en/history/">History</a>
+    <a href="/en/houses/">Houses</a>
+    <a href="/en/visit/">Visit</a>
+    <a href="/en/in-the-cellar/">In the Cellar</a>
+    <a href="/en/food-and-champagne/">Food & Champagne</a>
+    <a href="/en/journal/">Journal</a>
+    <a href="/en/quiz/">Quiz</a>
+    <div class="nav-overlay-lang"><b>EN</b> · FR</div>
+  </nav>
+</div>
 </body>
 </html>

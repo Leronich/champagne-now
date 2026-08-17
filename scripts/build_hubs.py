@@ -125,6 +125,40 @@ def renvoi(langue: str, section: str) -> str:
             "</div>\n")
 
 
+# ── Мобильное меню ──────────────────────────────────────────────────────────
+#
+# Кнопка-гамбургер и оверлей должны стоять ВМЕСТЕ. Первая попытка добавила в
+# шаблоны только кнопку, и пересборка оставила 20 страниц с кнопкой, которая
+# ссылается через aria-controls на элемент, отсутствующий в документе: нажать
+# можно, открыть нечего. Поэтому обе части живут здесь, рядом.
+RUBRIQUES_MENU = [
+    ("terroir", "The Region", "La Région"),
+    ("wine-styles", "The Wine", "Le Vin"),
+    ("history", "History", "Histoire"),
+    ("houses", "Houses", "Maisons"),
+    ("visit", "Visit", "Visiter"),
+    ("in-the-cellar", "In the Cellar", "En Cave"),
+    ("food-and-champagne", "Food &amp; Champagne", "Accords"),
+    ("journal", "Journal", "Journal"),
+]
+
+
+def overlay(langue: str, lang_bloc: str) -> str:
+    """Полноэкранное меню. Квиз есть только по-английски — /fr/quiz/ не
+    существует, и ссылка туда была бы обещанием несуществующей страницы."""
+    liens = "\n".join(
+        f'    <a href="/{langue}/{slug}/">{en if langue == "en" else fr}</a>'
+        for slug, en, fr in RUBRIQUES_MENU)
+    ferme = "Fermer" if langue == "fr" else "Close"
+    return ('<div class="nav-overlay" id="navOverlay">\n'
+            f'  <button class="nav-overlay-close" type="button" aria-label="{ferme}">&#10005;</button>\n'
+            '  <nav class="nav-overlay-links" aria-label="Menu">\n'
+            + liens + "\n"
+            '    <a href="/en/quiz/">Quiz</a>\n'
+            f'    <div class="nav-overlay-lang">{lang_bloc}</div>\n'
+            '  </nav>\n</div>\n')
+
+
 def page(langue, section, titre, deck, items, alt_url):
     est_fr = langue == "fr"
     banniere = "" if section in SANS_BANNIERE else f"banner-{section}.jpg"
@@ -177,6 +211,7 @@ if(c&&c.exp>Date.now()&&c.analytics===true){{gtag('consent','update',{{'analytic
 gtag('js',new Date());gtag('config','G-J8273H5YMH');
 </script>
 <link rel="stylesheet" href="/static/consent.css" />
+<link rel="stylesheet" href="/static/nav.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{texte(titre)} — Champagne.now</title>
 <meta name="description" content="{texte(deck)}" />
@@ -206,6 +241,7 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
     {lang_bloc}
     <a href="/#quiz" class="res">{'Trouvez votre moment' if est_fr else 'Find Your Moment'}</a>
   </div>
+    <button class="nav-burger" type="button" aria-label="Menu" aria-controls="navOverlay" aria-expanded="false">&#9776;</button>
 </nav>
 
 <div class="breadcrumb-bar">
@@ -261,6 +297,7 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
   document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 }})();
 </script>
+{overlay(langue, lang_bloc)}<script defer src="/static/nav.js"></script>
 <script defer src="/static/consent.js"></script>
 </body>
 </html>
@@ -356,6 +393,7 @@ if(c&&c.exp>Date.now()&&c.analytics===true){{gtag('consent','update',{{'analytic
 gtag('js',new Date());gtag('config','G-J8273H5YMH');
 </script>
 <link rel="stylesheet" href="/static/consent.css" />
+<link rel="stylesheet" href="/static/nav.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Journal — Champagne.now</title>
 <meta name="description" content="{deck}" />
@@ -385,6 +423,7 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
     {lang_bloc}
     <a href="/#quiz" class="res">{'Trouvez votre moment' if est_fr else 'Find Your Moment'}</a>
   </div>
+    <button class="nav-burger" type="button" aria-label="Menu" aria-controls="navOverlay" aria-expanded="false">&#9776;</button>
 </nav>
 
 <div class="breadcrumb-bar">
@@ -425,6 +464,7 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
   document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 }})();
 </script>
+{overlay(langue, lang_bloc)}<script defer src="/static/nav.js"></script>
 <script defer src="/static/consent.js"></script>
 </body>
 </html>

@@ -16,6 +16,7 @@ if(c&&c.exp>Date.now()&&c.analytics===true){gtag('consent','update',{'analytics_
 gtag('js',new Date());gtag('config','G-J8273H5YMH');
 </script>
 <link rel="stylesheet" href="/static/consent.css" />
+<link rel="stylesheet" href="/static/nav.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Contact — Champagne.now</title>
 <meta name="description" content="Contacter Champagne.now : rédaction, presse, partenariats. Site éditorial indépendant." />
@@ -44,6 +45,7 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
     <div class="lang"><a href="/en/contact/">EN</a> · <b>FR</b></div>
     <a href="/#quiz" class="res">Trouvez votre moment</a>
   </div>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-controls="navOverlay" aria-expanded="false">&#9776;</button>
 </nav>
 
 <div class="legal-wrap">
@@ -107,6 +109,22 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
   }, {passive:true});
 })();
 </script>
+<script defer src="/static/nav.js"></script>
 <script defer src="/static/consent.js"></script>
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" type="button" aria-label="Fermer">&#10005;</button>
+  <nav class="nav-overlay-links" aria-label="Menu">
+    <a href="/fr/terroir/">La Région</a>
+    <a href="/fr/wine-styles/">Le Vin</a>
+    <a href="/fr/history/">Histoire</a>
+    <a href="/fr/houses/">Maisons</a>
+    <a href="/fr/visit/">Visiter</a>
+    <a href="/fr/in-the-cellar/">En Cave</a>
+    <a href="/fr/food-and-champagne/">Accords</a>
+    <a href="/fr/journal/">Journal</a>
+    <a href="/en/quiz/">Quiz</a>
+    <div class="nav-overlay-lang"><a href="/en/contact/">EN</a> · <b>FR</b></div>
+  </nav>
+</div>
 </body>
 </html>

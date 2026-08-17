@@ -1,0 +1,73 @@
+/* nav.css — мобильное меню.
+ *
+ * Отдельным файлом, а не внутри styles.css, по одной конкретной причине:
+ * /en/quiz/ не подключает styles.css — у него собственная вёрстка. Пока
+ * правила лежали там, оверлей на этой странице не получал `display:none` и
+ * вываливался в поток обычным списком ссылок поверх содержимого.
+ *
+ * Файл подключается рядом с nav.js на всех страницах: одна разметка, один
+ * стиль, один скрипт — и покрытие обеспечено построением, а не удачей.
+ */
+
+/* ── МОБИЛЬНОЕ МЕНЮ ─────────────────────────────────────────────────────────
+   До этого на узком экране прятались и .nav-links, и .nav-right: в шапке
+   оставался один логотип, и попасть с телефона в любой раздел было нельзя —
+   только через ссылки в тексте и подвал. Гамбургер закрывает эту дыру.
+
+   .nav-right на мобиле остаётся скрытым: его содержимое (переключатель языка
+   и кнопка квиза) переезжает внутрь оверлея. Показывать одновременно и его,
+   и гамбургер значило бы дублировать одно и то же в тесной строке. */
+.nav-burger {
+  display: none;
+  align-items: center; justify-content: center;
+  background: none; border: 0; padding: 4px 2px;
+  color: var(--cream); font-size: 22px; line-height: 1;
+  cursor: pointer; justify-self: end;
+}
+.nav-burger:hover { color: var(--gold); }
+.nav-burger:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+
+.nav-overlay {
+  display: none;
+  /* Выше баннера согласия (z-index 9999). Иначе баннер накрывает низ меню:
+     на экране 390x844 он съедал пункт «Quiz» и переключатель языка целиком.
+     Баннер никуда не девается — он снова виден, как только меню закрыли, и
+     выбор по-прежнему обязателен. */
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(10, 8, 7, .97);
+  backdrop-filter: blur(6px);
+  flex-direction: column; align-items: center; justify-content: center;
+}
+.nav-overlay.open { display: flex; }
+.nav-overlay-close {
+  position: absolute; top: 18px; right: 20px;
+  background: none; border: 0; padding: 6px;
+  color: var(--cream); font-size: 26px; line-height: 1; cursor: pointer;
+}
+.nav-overlay-close:hover { color: var(--gold); }
+.nav-overlay-links {
+  display: flex; flex-direction: column; align-items: center; gap: 26px;
+}
+.nav-overlay-links a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px; line-height: 1; letter-spacing: .06em;
+  color: var(--cream);
+}
+.nav-overlay-links a:hover { color: var(--gold); }
+.nav-overlay-lang {
+  font-family: 'EB Garamond', serif;
+  font-size: 14px; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--cream-dim); margin-top: 10px;
+}
+.nav-overlay-lang a { font-size: inherit; font-family: inherit; color: var(--cream-dim); }
+.nav-overlay-lang a:hover { color: var(--gold); }
+.nav-overlay-lang b { color: var(--gold); font-weight: 500; }
+
+@media (max-width: 640px) {
+  .nav-burger { display: flex; }
+}
+/* Оверлей — только мобильный элемент: на широком экране в шапке есть полное
+   меню, и открытый на весь экран список поверх него был бы дефектом. */
+@media (min-width: 641px) {
+  .nav-overlay, .nav-overlay.open { display: none; }
+}

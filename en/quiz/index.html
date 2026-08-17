@@ -16,6 +16,7 @@ if(c&&c.exp>Date.now()&&c.analytics===true){gtag('consent','update',{'analytics_
 gtag('js',new Date());gtag('config','G-J8273H5YMH');
 </script>
 <link rel="stylesheet" href="/static/consent.css" />
+<link rel="stylesheet" href="/static/nav.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Find Your Champagne Moment — Champagne.now</title>
 <meta name="description" content="Seven questions about your evening, your mood, the company at the table — and a bottle chosen the way a sommelier would." />
@@ -242,6 +243,7 @@ em { font-style: italic; color: var(--gold); }
   </div>
   <div class="wordmark"><a href="/">Champagne&nbsp;•&nbsp;now</a></div>
   <div class="nav-right"><a href="/">← Back</a></div>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-controls="navOverlay" aria-expanded="false">&#9776;</button>
 </nav>
 
 <div class="q-progress"><div class="q-progress-fill" id="progressFill"></div></div>
@@ -466,6 +468,22 @@ function restartQuiz() {
   setTimeout(() => renderQuestion(0), 400);
 }
 </script>
+<script defer src="/static/nav.js"></script>
 <script defer src="/static/consent.js"></script>
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-overlay-close" type="button" aria-label="Close">&#10005;</button>
+  <nav class="nav-overlay-links" aria-label="Menu">
+    <a href="/en/terroir/">The Region</a>
+    <a href="/en/wine-styles/">The Wine</a>
+    <a href="/en/history/">History</a>
+    <a href="/en/houses/">Houses</a>
+    <a href="/en/visit/">Visit</a>
+    <a href="/en/in-the-cellar/">In the Cellar</a>
+    <a href="/en/food-and-champagne/">Food & Champagne</a>
+    <a href="/en/journal/">Journal</a>
+    <a href="/en/quiz/">Quiz</a>
+    <div class="nav-overlay-lang"><b>EN</b></div>
+  </nav>
+</div>
 </body>
 </html>
