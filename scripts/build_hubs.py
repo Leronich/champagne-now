@@ -21,6 +21,18 @@ Pages отдаёт на неизвестный путь главную стра�
 
     python scripts/build_hubs.py --dry-run
     python scripts/build_hubs.py
+
+Порядок запуска
+---------------
+Шаблон хабов и журналов несёт собственный hreflang, поэтому пересборка
+затирает то, что расставил fix_hreflang.py. Запускать всегда парой:
+
+    python scripts/build_hubs.py
+    python scripts/fix_hreflang.py
+
+Журналы (/en/journal/, /fr/journal/) собираются здесь же, в main(). До
+18.08.2026 их не собирал никто: строка `if __name__ == "__main__"` стояла в
+середине файла, и journal() был определён ниже неё — мёртвым кодом.
 """
 
 import argparse
@@ -335,19 +347,33 @@ def main() -> int:
                 chemin.parent.mkdir(parents=True, exist_ok=True)
                 chemin.write_text(html, encoding="utf-8")
 
+    # Журналы собираются здесь же. До 18.08.2026 journal() был определён
+    # ПОСЛЕ строки `if __name__ == "__main__"`, стоявшей в середине файла, и
+    # не вызывался ниоткуда: 136 строк мёртвого кода. Страницы /en/journal/ и
+    # /fr/journal/ лежали замороженными с одного давнего прогона, и ни одна
+    # новая статья в них больше не попадала — при том что «Journal» стоит
+    # ссылкой в шапке и меню 266 раз.
+    journaux = []
+    for langue in ("en", "fr"):
+        html = journal(langue)
+        chemin = RACINE / langue / "journal" / "index.html"
+        journaux.append((f"/{langue}/journal/", html.count('class="related-card'), len(html)))
+        if not args.dry_run:
+            chemin.parent.mkdir(parents=True, exist_ok=True)
+            chemin.write_text(html, encoding="utf-8")
+
     print(f"хабов: {len(faits)}")
     for url, n, taille in faits:
+        print(f"  {url:<26} {n:>2} статей  {taille // 1024} КБ")
+    print(f"журналов: {len(journaux)}")
+    for url, n, taille in journaux:
         print(f"  {url:<26} {n:>2} статей  {taille // 1024} КБ")
     if args.dry_run:
         print("\n--dry-run: ничего не записано.")
     return 0
 
 
-if __name__ == "__main__":
-    sys.exit(main())
-
-
-# ── Журнал и французский контакт ────────────────────────────────────────────
+# ── Журнал ────────────────────────────────────────────
 #
 # «Journal» стоит в меню каждой статьи (63 ссылки en + 62 fr) и никогда не
 # существовал. Это не раздел с собственными статьями, а перечень всего — его и
@@ -480,3 +506,7 @@ gtag('js',new Date());gtag('config','G-J8273H5YMH');
 </body>
 </html>
 """
+
+
+if __name__ == "__main__":
+    sys.exit(main())
