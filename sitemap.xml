@@ -387,11 +387,17 @@
   </url>
   <url>
     <loc>https://champagne.now/en/visit/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/en/visit/champagne-cellar-tours/</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://champagne.now/en/visit/champagne-stay/</loc>

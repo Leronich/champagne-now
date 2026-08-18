@@ -817,3 +817,46 @@
   .aff-links { gap: 16px; }
   .aff-link { font-size: 14px; letter-spacing: .18em; }
 }
+
+/* ── Winalist: карточки бронирования визитов в дома ───────────────────────── */
+/* Отдельный компонент, а не .aff-block: там раскрытие вшито внутрь блока и на
+   странице таких блоков один. Здесь карточек шесть подряд, и раскрытие стоит
+   один раз перед всей серией. */
+.winalist-card {
+  border: 1px solid var(--hairline);
+  padding: 28px 32px;
+  margin-bottom: 20px;
+}
+.winalist-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+.winalist-card-desc {
+  font-family: 'EB Garamond', serif;
+  font-size: 17px;
+  color: var(--cream-dim);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.winalist-card-cta {
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 2px;
+  text-decoration: none;
+  transition: border-color .3s;
+}
+.winalist-card-cta:hover { border-color: var(--gold); }
+
+@media (max-width: 640px) {
+  /* 28px 32px на 390px экрана съедают шестую часть ширины — как у .aff-block. */
+  .winalist-card { padding: 22px 18px; }
+  .winalist-card-name { font-size: 20px; }
+  .winalist-card-desc { font-size: 15px; }
+  .winalist-card-cta { font-size: 12px; letter-spacing: .18em; }
+}
