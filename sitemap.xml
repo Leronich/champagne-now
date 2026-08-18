@@ -12,6 +12,8 @@
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/contact/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/editorial/</loc>

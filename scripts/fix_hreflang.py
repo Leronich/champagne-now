@@ -96,11 +96,19 @@ def construire_paires() -> tuple:
         m = re.search(rf'hreflang="{lg}" href="{re.escape(BASE)}([^"]+)"', h)
         return m.group(1) if m else None
 
-    for p in RACINE.glob("fr/*/*/index.html"):
+    # Два уровня вложенности, а не один: /fr/contact/ и /fr/editorial/ лежат
+    # прямо под языком, без раздела. Прежний шаблон fr/*/*/index.html их не
+    # видел, и пара contact оказалась объявлена в одну сторону — французская
+    # страница называла английскую, английская молчала.
+    def toutes(langue):
+        yield from RACINE.glob(f"{langue}/*/index.html")
+        yield from RACINE.glob(f"{langue}/*/*/index.html")
+
+    for p in toutes("fr"):
         c = cible(p, "en")
         if c and c in sur_disque:
             paires[c] = url(p); sources[c] = "обратный ход"
-    for p in RACINE.glob("en/*/*/index.html"):
+    for p in toutes("en"):
         c = cible(p, "fr")
         u = url(p)
         if u not in paires and c and c in sur_disque:
