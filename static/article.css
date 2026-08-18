@@ -712,20 +712,29 @@
    Изображение уходит под затемнение: шапка несёт заголовок и деку, и текст
    обязан читаться поверх любого кадра. Отсюда двойной градиент — вертикальный
    для нижней границы и горизонтальный со стороны текста. */
+/* Затемнений было два, и они перемножались: кадр рисовался на opacity .5, а
+   поверх ложился ещё двойной градиент. Справа на середине высоты от снимка
+   оставалась примерно треть яркости — фотографию было почти не разглядеть.
+   18.08.2026 обе ступени ослаблены примерно на 40 %.
+
+   Что НЕ ослаблено: левый край горизонтального градиента и низ вертикального.
+   Там стоят заголовок, дека и мета — текст обязан читаться поверх любого
+   кадра, и осветлять его подложку значит менять картинку на нечитаемую
+   типографику. Осветляется та часть, где текста нет. */
 .art-hero--illus::before {
   content: "";
   position: absolute; inset: 0; z-index: 0;
   background-image: var(--illus);
   background-size: cover;
   background-position: center 20%;
-  opacity: .5;
+  opacity: .72;
 }
 .art-hero--illus::after {
   content: "";
   position: absolute; inset: 0; z-index: 1;
   background:
-    linear-gradient(90deg, var(--noir) 0%, rgba(10,8,7,.82) 42%, rgba(10,8,7,.35) 100%),
-    linear-gradient(to top, var(--noir) 0%, transparent 45%);
+    linear-gradient(90deg, var(--noir) 0%, rgba(10,8,7,.5) 42%, rgba(10,8,7,.2) 100%),
+    linear-gradient(to top, rgba(10,8,7,.92) 0%, transparent 42%);
 }
 .art-hero--illus .art-hero-inner { z-index: 2; }
 
@@ -739,11 +748,13 @@
 }
 
 @media (max-width: 640px) {
-  .art-hero--illus::before { background-position: center 45%; opacity: .42; }
+  /* На узком экране текст занимает почти всю ширину, поэтому горизонтальный
+     градиент здесь гасится слабее, чем на десктопе, но тоже ослаблен. */
+  .art-hero--illus::before { background-position: center 45%; opacity: .62; }
   .art-hero--illus::after {
     background:
-      linear-gradient(90deg, var(--noir) 0%, rgba(10,8,7,.72) 70%, rgba(10,8,7,.5) 100%),
-      linear-gradient(to top, var(--noir) 0%, transparent 55%);
+      linear-gradient(90deg, var(--noir) 0%, rgba(10,8,7,.45) 70%, rgba(10,8,7,.3) 100%),
+      linear-gradient(to top, rgba(10,8,7,.92) 0%, transparent 50%);
   }
   .illus-mark { right: 14px; bottom: 10px; font-size: 10px; letter-spacing: .22em; }
 }
