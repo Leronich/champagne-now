@@ -61,6 +61,7 @@ MANUELLES = {
         "le-mesnil-sur-oger":      "mesnil-sur-oger-fr",
     },
     "visit": {
+        "champagne-cellar-tours":  "visite-caves-champagne-fr",
         "champagne-stay":          "hebergement-champagne-fr",
         "day-trip-paris":          "excursion-paris-fr",
         "harvest-season":          "vendange-champagne-fr",

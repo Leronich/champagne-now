@@ -398,6 +398,8 @@
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/champagne-cellar-tours/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/visite-caves-champagne-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/visit/champagne-stay/</loc>
@@ -905,7 +907,7 @@
   </url>
   <url>
     <loc>https://champagne.now/fr/visit/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/"/>
@@ -958,6 +960,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/harvest-season/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/vendange-champagne-fr/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/fr/visit/visite-caves-champagne-fr/</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/visit/champagne-cellar-tours/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/visit/visite-caves-champagne-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/visit/visite-moet-fr/</loc>

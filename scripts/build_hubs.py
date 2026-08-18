@@ -143,6 +143,17 @@ RUBRIQUES_MENU = [
 ]
 
 
+def sans_enveloppe(lang_bloc: str) -> str:
+    """Содержимое <div class="lang">, без самой обёртки.
+
+    В оверлее переключатель живёт под собственным классом .nav-overlay-lang.
+    Класс .lang размечен для шапки, и вкладывать его внутрь значит держать в
+    разметке div, который ничего не делает. 18.08.2026 так было на 16 хабах —
+    оверлей получал блок целиком, вместе с открывающим тегом."""
+    m = re.match(r'\s*<div class="lang">(.*)</div>\s*$', lang_bloc, re.S)
+    return m.group(1).strip() if m else lang_bloc.strip()
+
+
 def overlay(langue: str, lang_bloc: str) -> str:
     """Полноэкранное меню. Квиз есть только по-английски — /fr/quiz/ не
     существует, и ссылка туда была бы обещанием несуществующей страницы."""
@@ -155,7 +166,7 @@ def overlay(langue: str, lang_bloc: str) -> str:
             '  <nav class="nav-overlay-links" aria-label="Menu">\n'
             + liens + "\n"
             '    <a href="/en/quiz/">Quiz</a>\n'
-            f'    <div class="nav-overlay-lang">{lang_bloc}</div>\n'
+            f'    <div class="nav-overlay-lang">{sans_enveloppe(lang_bloc)}</div>\n'
             '  </nav>\n</div>\n')
 
 

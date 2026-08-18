@@ -336,6 +336,9 @@ def main() -> int:
                         help="priority_batch, по умолчанию queue-{дата}")
     parser.add_argument("--date", default=date.today().isoformat(),
                         help="дата в имени файла заявки")
+    parser.add_argument("--slugs", default="",
+                        help="подать заявку только на перечисленные слаги "
+                             "(через запятую). Без флага — все статьи.")
     args = parser.parse_args()
 
     if not PHOTO_INDEX_ROOT.exists():
@@ -346,6 +349,15 @@ def main() -> int:
     if not articles:
         print("ОШИБКА: не найдено ни одной статьи", file=sys.stderr)
         return 1
+
+    if args.slugs:
+        voulus = {x.strip() for x in args.slugs.split(",") if x.strip()}
+        inconnus = voulus - {a["slug"] for a in articles}
+        if inconnus:
+            print(f"ОШИБКА: таких статей нет: {sorted(inconnus)}", file=sys.stderr)
+            return 1
+        articles = [a for a in articles if a["slug"] in voulus]
+        print(f"фильтр --slugs: {len(articles)} статей из перечисленных")
 
     batch = args.batch or f"queue-{args.date}"
     requests = build_all(articles, batch, args.per_language)
