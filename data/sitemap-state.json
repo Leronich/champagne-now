@@ -12,8 +12,8 @@
     "lastmod": "2026-08-04"
   },
   "https://champagne.now/en/food-and-champagne/": {
-    "hash": "3b219a3b915fa1e5",
-    "lastmod": "2026-08-16"
+    "hash": "a013466f4ce5d780",
+    "lastmod": "2026-08-19"
   },
   "https://champagne.now/en/food-and-champagne/champagne-breakfast/": {
     "hash": "807726baf8b82097",
@@ -30,6 +30,10 @@
   "https://champagne.now/en/food-and-champagne/champagne-fried-chicken/": {
     "hash": "7252b20908bcd1da",
     "lastmod": "2026-08-15"
+  },
+  "https://champagne.now/en/food-and-champagne/champagne-gift-hampers/": {
+    "hash": "4f0322f3dbc6d9cf",
+    "lastmod": "2026-08-19"
   },
   "https://champagne.now/en/food-and-champagne/champagne-oysters/": {
     "hash": "eb9d9e7c09064cf6",
@@ -136,8 +140,8 @@
     "lastmod": "2026-08-15"
   },
   "https://champagne.now/en/journal/": {
-    "hash": "1910f4d27e6c5a5e",
-    "lastmod": "2026-08-18"
+    "hash": "4da9b271e577e3fc",
+    "lastmod": "2026-08-19"
   },
   "https://champagne.now/en/legal/affiliate/": {
     "hash": "68c19398edb34742",
@@ -280,12 +284,16 @@
     "lastmod": "2026-08-04"
   },
   "https://champagne.now/fr/food-and-champagne/": {
-    "hash": "d33627c986802314",
-    "lastmod": "2026-08-16"
+    "hash": "b632ef921f747ae6",
+    "lastmod": "2026-08-19"
   },
   "https://champagne.now/fr/food-and-champagne/champagne-brunch-fr/": {
     "hash": "4bffd47770dc1818",
     "lastmod": "2026-08-15"
+  },
+  "https://champagne.now/fr/food-and-champagne/champagne-coffrets-cadeaux-fr/": {
+    "hash": "b29a2a28f4818cfe",
+    "lastmod": "2026-08-19"
   },
   "https://champagne.now/fr/food-and-champagne/champagne-dessert-fr/": {
     "hash": "db4a35adb5596810",
@@ -400,8 +408,8 @@
     "lastmod": "2026-08-15"
   },
   "https://champagne.now/fr/journal/": {
-    "hash": "ba36c18eb82d3c04",
-    "lastmod": "2026-08-18"
+    "hash": "5f7ceda71d747689",
+    "lastmod": "2026-08-19"
   },
   "https://champagne.now/fr/legal/affiliation/": {
     "hash": "e21af097bd0dbf5d",

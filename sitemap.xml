@@ -25,7 +25,7 @@
   </url>
   <url>
     <loc>https://champagne.now/en/food-and-champagne/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/"/>
@@ -62,6 +62,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-fried-chicken/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-poulet-frit-fr/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/en/food-and-champagne/champagne-gift-hampers/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-gift-hampers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-coffrets-cadeaux-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/en/food-and-champagne/champagne-oysters/</loc>
@@ -271,7 +279,7 @@
   </url>
   <url>
     <loc>https://champagne.now/en/journal/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/journal/"/>
@@ -557,7 +565,7 @@
   </url>
   <url>
     <loc>https://champagne.now/fr/food-and-champagne/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/"/>
@@ -570,6 +578,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-breakfast/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-brunch-fr/"/>
+  </url>
+  <url>
+    <loc>https://champagne.now/fr/food-and-champagne/champagne-coffrets-cadeaux-fr/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/food-and-champagne/champagne-gift-hampers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://champagne.now/fr/food-and-champagne/champagne-coffrets-cadeaux-fr/"/>
   </url>
   <url>
     <loc>https://champagne.now/fr/food-and-champagne/champagne-dessert-fr/</loc>
@@ -797,7 +813,7 @@
   </url>
   <url>
     <loc>https://champagne.now/fr/journal/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://champagne.now/en/journal/"/>

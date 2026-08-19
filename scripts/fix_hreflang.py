@@ -43,6 +43,7 @@ BASE = "https://champagne.now"
 MANUELLES = {
     "food-and-champagne": {
         "champagne-breakfast":     "champagne-brunch-fr",
+        "champagne-gift-hampers":  "champagne-coffrets-cadeaux-fr",
         "champagne-cheese":        "champagne-fromage-fr",
         "champagne-fried-chicken": "champagne-poulet-frit-fr",
     },
