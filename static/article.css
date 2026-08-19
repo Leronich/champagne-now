@@ -871,3 +871,20 @@
   .winalist-card-desc { font-size: 15px; }
   .winalist-card-cta { font-size: 12px; letter-spacing: .18em; }
 }
+
+/* ── 8wines: фото товара внутри партнёрской ссылки ────────────────────────── */
+/* Кадр лежит ВНУТРИ <a>, а не рядом: 8wines разрешили использовать снимки при
+   условии, что каждый ведёт обратно к ним по партнёрской ссылке. */
+.aff-product-img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid var(--hairline);
+}
+/* .aff-link переехал с самой ссылки на <span> внутри неё, поэтому правило
+   .aff-link:hover теперь срабатывает только на подписи. Наведение на картинку
+   должно гасить подпись так же — иначе половина ссылки не отзывается. */
+.aff-links a:hover .aff-link { opacity: .7; }
+.aff-links a:hover .aff-product-img { border-color: var(--gold); }
